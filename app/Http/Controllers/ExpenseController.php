@@ -29,7 +29,7 @@ class ExpenseController extends Controller
         ]);
 
 
-        // dd($request->all());
+       
         Expense::create([
             'user_id' => Auth::id(),
             'description' => $request->description,
