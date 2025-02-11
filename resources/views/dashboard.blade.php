@@ -30,6 +30,8 @@
         <div class="col-md-6">
             <div class="card p-3">
                 <h4>Spending by Category</h4>
+
+                <canvas id="spendingChart"></canvas>
                 <ul>
 
                 @if(isset($spendingByCategory))
@@ -73,5 +75,25 @@
         </table>
     </div>
 </div>
+
+<script>
+    // Get data from Laravel
+    const categories = {!! json_encode($spendingByCategory->keys()) !!};
+    const amounts = {!! json_encode($spendingByCategory->values()) !!};
+
+    // Chart.js configuration
+    const ctx = document.getElementById('spendingChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: categories,
+            datasets: [{
+                label: 'Spending by Category',
+                data: amounts,
+                backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56', '#4bc0c0', '#9966ff'],
+            }]
+        }
+    });
+</script>
 @endsection
 
