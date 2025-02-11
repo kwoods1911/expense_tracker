@@ -8,7 +8,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ExpenseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
