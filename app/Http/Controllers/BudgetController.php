@@ -63,10 +63,12 @@ class BudgetController extends Controller
 
         $request->validate([
             'amount' => 'required|numeric|min:0',
+            'notification_threshold' => 'required|integer|min:1|max:100',
         ]);
 
         $budget->update([
             'amount' => $request->amount,
+            'notification_threshold' => 'required|integer|min:1|max:100',
         ]);
 
         return redirect()->route('budget.index')->with('success', 'Budget updated successfully.');
