@@ -29,10 +29,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
    
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-    Route::resource('expenses', ExpenseController::class)->except(['show']);
+    Route::resource('expenses', ExpenseController::class)->except(['show'])->name('index', 'expenses.index');
 
 
     Route::get('/budget', [BudgetController::class, 'index'])->name('budget.index');
+
     Route::get('/budget/create', [BudgetController::class, 'create'])->name('budget.create');
     Route::post('/budget', [BudgetController::class, 'store'])->name('budget.store');
     Route::get('/budget/{budget}/edit', [BudgetController::class, 'edit'])->name('budget.edit');
