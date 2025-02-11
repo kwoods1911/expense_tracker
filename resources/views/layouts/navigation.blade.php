@@ -6,15 +6,31 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <!-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> -->
+
+                        <span class="font-figtree text-xl text-gray-800">El</span>
+                        <span class="font-figtree text-xl text-gray-800">Cheapo</span>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        El Cheapo
                     </x-nav-link>
+
+                    <x-nav-link :href="route('budget.index')" :active="request()->routeIs('budget.index')">
+                       Set Budget
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                       Categories
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
+                      Expenses
+                    </x-nav-link>
+                    
                 </div>
             </div>
 
@@ -70,6 +86,18 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('budget.index')" :active="request()->routeIs('budget.index')">
+                Budget
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                Category
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
+                Expenses
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -87,7 +115,6 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
