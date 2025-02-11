@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Expense;
+use Illuminate\Support\Facades\Auth;
 
 class ExpenseController extends Controller
 {
@@ -27,7 +28,16 @@ class ExpenseController extends Controller
             'description' => 'nullable|string'
         ]);
 
-        auth()->user()->expenses()->create($request->all());
+
+        // dd($request->all());
+        Expense::create([
+            'user_id' => Auth::id(),
+            'description' => $request->description,
+            'date' => $request->date,
+            'category' => $request->category,
+            'amount' => $request->amount,
+            'category_id' => $request->category_id
+        ]);
 
         return redirect()->route('expenses.index')->with('success', 'Expense added successfully.');
     }
@@ -49,7 +59,11 @@ class ExpenseController extends Controller
             'description' => 'nullable|string'
         ]);
 
-        $expense->update($request->all());
+        $expense->update([
+            'description' => $request->description,
+            'amount' => $request->amount,
+            'category_id' => $request->category_id
+        ]);
 
         return redirect()->route('expenses.index')->with('success', 'Expense updated successfully.');
     }

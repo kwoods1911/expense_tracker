@@ -23,6 +23,7 @@
         <tbody>
             @foreach($expenses as $expense)
                 <tr>
+                    <td>{{ $expense->category_id}}</td>
                     <td>{{ $expense->category }}</td>
                     <td>${{ number_format($expense->amount, 2) }}</td>
                     <td>{{ $expense->date }}</td>

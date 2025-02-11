@@ -7,6 +7,8 @@ use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ExpenseController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/budget', [BudgetController::class, 'store'])->name('budget.store');
     Route::get('/budget/{budget}/edit', [BudgetController::class, 'edit'])->name('budget.edit');
     Route::put('/budget/{budget}', [BudgetController::class, 'update'])->name('budget.update');
+
+
+
+
+    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
 
 });
 
