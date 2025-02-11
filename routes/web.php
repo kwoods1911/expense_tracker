@@ -26,10 +26,8 @@ use App\Http\Controllers\DashboardController;
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
+   
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::resource('expenses', ExpenseController::class)->except(['show']);
 
@@ -56,9 +54,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::post('/budget/update', [BudgetController::class, 'update'])->name('budget.update')->middleware('auth');
 Route::post('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store')->middleware('auth');
