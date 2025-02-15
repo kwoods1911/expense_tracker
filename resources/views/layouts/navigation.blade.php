@@ -4,28 +4,24 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center max-w-[60px]">
                     <a href="{{ route('dashboard') }}">
-                        <span class="font-figtree text-xl red-800">El</span>
-                        <span class="font-figtree text-xl text-gray-800">Cheapo</span>
+                    <img src="{{ asset('images/elcheapo3.png') }}" alt="">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        El Cheapo
-                    </x-nav-link>
 
-                    <x-nav-link :href="route('budget.index')" :active="request()->routeIs('budget.index')">
+                    <x-nav-link class="text-white" :href="route('budget.index')" :active="request()->routeIs('budget.index')">
                        Set Budget
                     </x-nav-link>
 
-                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                    <x-nav-link class="text-white" :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                        Categories
                     </x-nav-link>
 
-                    <x-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
+                    <x-nav-link class="text-white" :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
                       Expenses
                     </x-nav-link>
                     
