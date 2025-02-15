@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Your Budget</h2>
+    <h2 class="text-red-50" >Your Budget</h2>
     @if ($budget)
         <p>Monthly Budget: ${{ number_format($budget->amount, 2) }}</p>
         <a href="{{ route('budget.edit', $budget->id) }}" class="btn btn-primary">Edit Budget</a>
