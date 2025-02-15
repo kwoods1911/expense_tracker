@@ -19,8 +19,8 @@
     </div>
 
 
-    <div class="mt-4">
-        <a href="{{ route('categories.create') }}" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Add New Category</a>
+    <div class="mt-8">
+        <a href="{{ route('categories.create') }}" class="bg-sky-500 text-white font-bold py-4 px-6 rounded hover:bg-sky-700">Add New Category</a>
     </div>
   
 </div>
