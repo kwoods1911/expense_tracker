@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container bg-[rgb(241, 241, 241)]">
 
 <div>
     <div class="mt-8 flex justify-center">
@@ -19,7 +19,7 @@
 
    
 
-    <table class="table w-full m-8 bg-[rgb(255, 255, 255)] ">
+    <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700">
         <thead class="table-header-group">
             <tr class="table-row text-left">
                 <th>Category ID</th>
@@ -32,7 +32,7 @@
         </thead>
         <tbody class="text-[rgb(55, 81, 61)]">
             @foreach($expenses as $expense)
-                <tr class="table-row">
+                <tr class="table-row border">
                     <td>{{ $expense->category_id}}</td>
                     <td>{{ $expense->category }}</td>
                     <td>${{ number_format($expense->amount, 2) }}</td>
