@@ -3,16 +3,16 @@
 @section('content')
 <div class="container">
 
-<div class="mt-4">
-<h2>Expense Categories</h2>
+<div class="mt-4 text-center">
+<h1>Expense Categories</h1>
 </div>
     
 
     <div class="mt-4">
-      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-3">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-3 min-h-[200px] shadow-xl p-4">
         @foreach($categories as $category)
 
-        <li class="list-group-item p-5 bg-blue-500 rounded text-white">{{ $category->name }}</li>  
+        <li class="list-group-item p-5 bg-blue-500 rounded text-white shadow-xl">{{ $category->name }}</li>  
            
         @endforeach
     </ul>
