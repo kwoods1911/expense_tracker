@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Budget;
-
+use App\Models\Category;
 
 class BudgetController extends Controller
 {
@@ -18,7 +18,8 @@ class BudgetController extends Controller
 
     public function create()
     {
-        return view('budget.create');
+        $categories = Category::where('user_id', Auth::id())->get(); 
+        return view('budget.create')->with('categories', $categories);
     }
 
     public function store(Request $request)
