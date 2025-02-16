@@ -18,7 +18,7 @@ class BudgetController extends Controller
 
     public function create()
     {
-        $categories = Category::where('user_id', Auth::id())->get()->toArray();
+        $categories = Category::where('user_id', Auth::id())->get();
         return view('budget.create')->with('categories', $categories);
     }
 
