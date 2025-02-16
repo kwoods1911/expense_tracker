@@ -26,13 +26,13 @@
                         <option value="{{ $category->name }}">{{ $category->name }}</option> 
                     @endforeach
                 </select>
-
-
             </div>
-
-
         </div>
-        <button type="submit" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Save Budget</button>
+        <div class="flex justify-between mt-8">
+                <button type="submit" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Save Budget</button>
+                <a href="{{ route('budget.index') }}" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">Cancel</a>
+        </div>
+
     </form>
     @endif
 </div>

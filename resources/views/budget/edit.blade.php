@@ -16,8 +16,13 @@
             <label for="notification_threshold" class="p-4">Notification Threshold (%)</label>
             <input type="number" name="notification_threshold" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" value="{{ old('notification_threshold', $budget->notification_threshold) }}" min="1" max="100">
         </div>
+        
 
+        <div class="flex justify-between mt-8">
         <button type="submit" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Update Budget</button>
+        <a href="{{ route('budget.index') }}" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">Cancel</a>
+        </div>
+       
     </form>
 </div>
 @endsection
