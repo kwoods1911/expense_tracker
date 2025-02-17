@@ -61,6 +61,7 @@ class ExpenseController extends Controller
         ]);
 
         $expense->update([
+            'category' => $request->category,
             'description' => $request->description,
             'amount' => $request->amount,
             'category_id' => $request->category_id
