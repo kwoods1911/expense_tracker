@@ -32,7 +32,7 @@
         </thead>
 
        
-        <tbody class="text-[rgb(55, 81, 61)]">
+        <tbody>
             @foreach($expenses as $expense)
                 <tr class="table-row border">
                     <td>{{ $expense->category_id}}</td>
@@ -56,7 +56,7 @@
     </table>
 
     @else
-        <div class="mt-8 flex justify-center">
+        <div class="mb-8 flex justify-center">
             <p class="text-2xl">No expenses found.</p>
         </div>    
     @endif
