@@ -11,6 +11,7 @@ class ExpenseController extends Controller
     public function index()
     {
         $expenses = auth()->user()->expenses()->latest()->get();
+       
         return view('expenses.index', compact('expenses'));
     }
 
