@@ -10,7 +10,9 @@
     Use of this website contitutes acceptance of the site 
     <span>
         <a href="#" class="text-white underline">Terms of Service</a>
-    </span> and <span>
+    </span> and
+    
+    <span>
         <a href="#" class="text-white underline">Privacy Policy</a>
     </span>.
 </span>
