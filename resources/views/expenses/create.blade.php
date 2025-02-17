@@ -16,10 +16,21 @@
 
     <form action="{{ route('expenses.store') }}" method="POST">
         @csrf
-        <div class="mb-3">
+
+<div class="mb-3">
+    <label for="category" class="block text-gray-700 font-bold mb-2">Category</label>
+    
+    <select name="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
+        <option value="">Select a category</option>
+        @foreach(Auth::user()->categories as $category)
+            <option value="{{ $category->name }}">{{ $category->name }}</option>
+        @endforeach
+    </select>
+</div>
+        <!-- <div class="mb-3">
             <label class="block text-gray-700 font-bold mb-2">Category</label>
             <input type="text" name="category" placeholder="e.g entertainment" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
-        </div>
+        </div> -->
 
         <div class="mb-3">
             <label class="block text-gray-700 font-bold mb-2">Amount</label>
@@ -36,16 +47,7 @@
             <textarea name="description" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" placeholder="e.g Spent money on ...."></textarea>
         </div>
 
-<div class="mb-3">
-    <label for="category_id" class="block text-gray-700 font-bold mb-2">Category</label>
-    
-    <select name="category_id" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
-        <option value="">Select a category</option>
-        @foreach(Auth::user()->categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
-        @endforeach
-    </select>
-</div>
+
 
 
 <div class="flex justify-between mt-8">
