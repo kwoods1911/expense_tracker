@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1 class="mb-4">Dashboard</h1>
+<div class="container flex flex-col items-center justify-start mt-8">
+    <h1 class="mb-4 text-5xl">Dashboard</h1>
 
     <div class="row">
         <div class="col-md-6">
-            <div class="card p-3">
+            <div class="card p-8 bg-sky-500 text-white">
                 @if(isset($totalBudget))
                     <h4>Total Budget: ${{ number_format($totalBudget, 2) }}</h4>
                 @else
@@ -29,10 +29,11 @@
 
         <div class="col-md-6">
             <div class="card p-3">
-                <h4>Spending by Category</h4>
+                <h4 class="mb-4">Spending by Category</h4>
 
                 <canvas id="spendingChart"></canvas>
-                <ul>
+
+                <ul class="card p-3 bg-sky-500 text-white mt-4">
 
                 @if(isset($spendingByCategory))
                     @foreach($spendingByCategory as $category => $amount)
@@ -40,18 +41,18 @@
                     @endforeach
 
                     @else
-                    <li>No expenses by category</li>
+                        <li>No expenses by category</li>
                     @endif
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="mt-4">
-        <h4>Recent Transactions</h4>
-        <table class="table">
-            <thead>
-                <tr>
+    <div class="mt-4 w-1/2">
+        <h4 class="text-2xl">Recent Transactions</h4>
+        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8">
+            <thead class="table-header-group">
+                <tr class="table-row text-left">
                     <th>Date</th>
                     <th>Category</th>
                     <th>Amount</th>
@@ -61,7 +62,7 @@
 
             @if(isset($recentExpenses))
                 @foreach($recentExpenses as $expense)
-                    <tr>
+                    <tr class="table-row border">
                         <td>{{ $expense->created_at->format('Y-m-d') }}</td>
                         <td>{{ $expense->category }}</td>
                         <td>${{ number_format($expense->amount, 2) }}</td>
@@ -69,7 +70,7 @@
                 @endforeach
 
                 @else
-                <tr><td>No recent expenses</td></tr>
+                <tr class="table-row border"><td>No recent expenses</td></tr>
                 @endif
             </tbody>
         </table>
