@@ -51,7 +51,6 @@ class ExpenseController extends Controller
 
     public function update(Request $request, Expense $expense)
     {
-        // dd($request);
         $this->authorize('update', $expense);
 
         $request->validate([
