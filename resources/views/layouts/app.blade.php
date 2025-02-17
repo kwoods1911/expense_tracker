@@ -30,10 +30,8 @@
 
             <!-- Page Content -->
             <main class="flex justify-center items-center">
-                @yield('content')
+            @yield('content')
             </main>
-
-            @include('layouts.footer')
         </div>
     </body>
 </html>

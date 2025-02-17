@@ -18,7 +18,7 @@
     @endif
 
    
-    @if(count($expenses) !== 0)
+
     <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700">
         <thead class="table-header-group">
             <tr class="table-row text-left">
@@ -30,8 +30,6 @@
                 <th>Actions</th>
             </tr>
         </thead>
-
-       
         <tbody class="text-[rgb(55, 81, 61)]">
             @foreach($expenses as $expense)
                 <tr class="table-row border">
@@ -54,11 +52,5 @@
             @endforeach
         </tbody>
     </table>
-
-    @else
-        <div class="mt-8 flex justify-center">
-            <p class="text-2xl">No expenses found.</p>
-        </div>    
-    @endif
-
+</div>
 @endsection
