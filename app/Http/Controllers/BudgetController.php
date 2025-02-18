@@ -13,7 +13,6 @@ class BudgetController extends Controller
     public function index()
     {
         $budget = Budget::where('user_id', Auth::id())->get();
-        // dd($budget);
         return view('budget.index', compact('budget'));
     }
 
