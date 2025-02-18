@@ -12,7 +12,7 @@ class BudgetController extends Controller
 
     public function index()
     {
-        $budget = Budget::where('user_id', Auth::id())->first();
+        $budget = Budget::where('user_id', Auth::id())->get();
         return view('budget.index', compact('budget'));
     }
 
@@ -26,12 +26,14 @@ class BudgetController extends Controller
     {
         $request->validate([
             'amount' => 'required|numeric|min:0',
+            'notification_threshold' => 'required|numeric|min:1'
         ]);
 
         Budget::create([
             'user_id' => Auth::id(),
             'amount' => $request->amount,
             'category' => $request->category,
+            'notification_threshold' => $request->notification_threshold 
         ]);
 
         return redirect()->route('budget.index')->with('success', 'Budget set successfully.');
