@@ -67,10 +67,10 @@
             <tbody>
             @if(isset($recentExpenses))
                 @foreach($recentExpenses as $expense)
-                    <tr class="table-row border">
-                        <td>{{ $expense->created_at->format('Y-m-d') }}</td>
-                        <td>{{ $expense->category }}</td>
-                        <td>${{ number_format($expense->amount, 2) }}</td>
+                    <tr class="table-row border odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                        <td class="p-1">{{ $expense->created_at->format('Y-m-d') }}</td>
+                        <td class="p-1">{{ $expense->category }}</td>
+                        <td class="p-1">${{ number_format($expense->amount, 2) }}</td>
                     </tr>
                 @endforeach
 
