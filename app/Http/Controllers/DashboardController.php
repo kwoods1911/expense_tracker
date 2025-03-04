@@ -29,7 +29,7 @@ class DashboardController extends Controller
         // Recent expenses
         $recentExpenses = Expense::where('user_id', $user->id)
             ->latest()
-            ->limit(5)
+            ->limit(10)
             ->get();
             
         return view('dashboard', compact('totalBudget', 'totalSpent', 'spendingByCategory', 'recentExpenses'));

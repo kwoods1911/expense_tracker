@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container flex flex-col items-center justify-start mt-8">
-    <h1 class="mb-4 text-5xl">Dashboard</h1>
+    <h1 class="mb-4 text-5xl">Expenses Dashboard</h1>
 
     <div class="row">
         <div class="col-md-6">
@@ -33,8 +33,12 @@
 
                 <canvas id="spendingChart"></canvas>
 
-                <ul class="card p-3 bg-sky-500 text-white mt-4">
 
+                <div class="bg-sky-500 p-3 m-3">
+
+                <h1 class="mb-4 text-white">Grouped by Category</h1>
+
+                <ul class="card p-3 bg-sky-500 text-white mt-4">
                 @if(isset($spendingByCategory))
                     @foreach($spendingByCategory as $category => $amount)
                         <li>{{ $category }}: ${{ number_format($amount, 2) }}</li>
@@ -44,12 +48,14 @@
                         <li>No expenses by category</li>
                     @endif
                 </ul>
+                </div>
+
             </div>
         </div>
     </div>
 
+    <h4 class="text-2xl">Recent Transactions</h4>
     <div class="mt-4 w-1/2">
-        <h4 class="text-2xl">Recent Transactions</h4>
         <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
@@ -59,7 +65,6 @@
                 </tr>
             </thead>
             <tbody>
-
             @if(isset($recentExpenses))
                 @foreach($recentExpenses as $expense)
                     <tr class="table-row border">
