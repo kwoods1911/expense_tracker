@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container bg-[rgb(241, 241, 241)] min-h-screen">
+<div class="bg-[rgb(241, 241, 241)] min-h-screen">
 @if(session('success'))
         <div class="bg-green-500 text-white w-1/4 mx-auto mt-4 p-4 rounded shadow-lg">{{ session('success') }}</div>
     @endif
@@ -19,7 +19,7 @@
 
    
     @if(count($expenses) !== 0)
-    <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8">
+    <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl">
         <thead class="table-header-group">
             <tr class="table-row text-left">
                 <!-- <th>Category ID</th> -->
