@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container flex flex-col items-center justify-start mt-8">
-    <h1 class="mb-4 text-5xl">Expenses Dashboard</h1>
-
-    <div class="row">
-        <div class="col-md-6">
+<div class="grid md:grid-cols-6 gap-8 sm:grid-cols-1">
+    <div></div>
+    <div class="col-span-2">
+        <h1 class="mb-4 text-5xl">Expenses Dashboard</h1> 
             <div class="card p-8 bg-sky-500 text-white">
                 @if(isset($totalBudget))
                     <h4>Total Budget: ${{ number_format($totalBudget, 2) }}</h4>
@@ -25,13 +24,11 @@
                 <h5>Remaining: $0.00</h5>
                 @endif
             </div>
-        </div>
 
-        <div class="col-md-6">
             <div class="card p-3">
                 <h4 class="mb-4">Spending by Category</h4>
 
-                <canvas id="spendingChart"></canvas>
+                <canvas class="h-24" id="spendingChart"></canvas>
 
 
                 <div class="bg-sky-500 p-3 m-3">
@@ -52,10 +49,10 @@
 
             </div>
         </div>
-    </div>
 
+<div class="col-span-2">
+        <div class="m-4">
     <h4 class="text-2xl">Recent Transactions</h4>
-    <div class="mt-4 w-1/2">
         <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
@@ -80,6 +77,11 @@
             </tbody>
         </table>
     </div>
+</div>
+   
+
+   
+ 
 </div>
 
 <script>

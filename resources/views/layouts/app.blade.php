@@ -29,7 +29,7 @@
             @endif
 
             <!-- Page Content -->
-            <main class="flex justify-center items-center">
+            <main class="m-8">
                 @yield('content')
             </main>
 
