@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-sky-500">
             <div class="shrink-0 flex items-center max-w-[100px]">
                 <a href="/">
-                    <img src="{{ asset('images/elcheapo3.png')}}" alt="">
+                    <img src="{{ asset('images/ELCHEAPO-FINAL.png') }}" alt="">
                 </a>
             </div>
 

@@ -4,7 +4,7 @@
 
 <div class="text-center">
     <h2 class="m-8 mt-4 text-3xl">Your Budget</h2>
-    <span>Note you can only have one budget per category.</span>
+    <span class="text-yellow-500">Note: you can only have one budget per category.</span>
 </div>
 
 
@@ -16,6 +16,7 @@
             <tr class="table-row text-left">
                 <th>Budget Category</th>
                 <th>Budget Amount</th>
+                <th>Notification Threshold</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -26,16 +27,17 @@
             @foreach($budget as $information)
             <tr class="table-row border">
                 <td>
-                    <p class="text-2xl"> {{$information->category}}: </p>
+                    <p class="text-2xl p-1"> {{$information->category}}: </p>
                 </td>
                 <td>${{ number_format($information->amount, 2) }}</td>
-                <td><a href="{{ route('budget.edit', $information->id) }}" class="mt-8 bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Edit Budget</a></td>
+                <td>{{$information->notification_threshold}} %</td>
+                <td class="p-1"><a href="{{ route('budget.edit', $information->id) }}" class="mt-8 bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Edit Budget</a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
     <div class="text-center">
-    <a href="{{ route('budget.create')}}" class="mt-8 bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Create New Budget</a>
+    <a href="{{ route('budget.create')}}" class="mt-8 bg-sky-500 text-white font-bold py-4 px-4 rounded hover:bg-sky-700">Create New Budget</a>
 </div>
     @else
 

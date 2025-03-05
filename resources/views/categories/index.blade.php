@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mt-4 text-center text-xl">
+<div class="mt-4 text-center text-4xl">
 <h1>Expense Categories</h1>
 </div>
     
