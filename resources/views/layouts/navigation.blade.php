@@ -27,6 +27,10 @@
                     <x-nav-link class="text-white" :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
                       Expenses
                     </x-nav-link>
+
+                    <x-nav-link class="text-white" :href="route('news')" :active="request()->routeIs('expenses.index')">
+                        Upcomming Features
+                    </x-nav-link>
                     
                 </div>
             </div>
