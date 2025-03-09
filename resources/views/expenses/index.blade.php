@@ -19,11 +19,13 @@
 
    
     @if(count($expenses) !== 0)
-    <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl">
+
+
+    <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl shadow-xl">
         <thead class="table-header-group">
             <tr class="table-row text-left">
                 <!-- <th>Category ID</th> -->
-                <th>Category</th>
+                <th class="p-3">Category</th>
                 <th>Amount</th>
                 <th>Date</th>
                 <th>Description</th>
@@ -34,9 +36,9 @@
        
         <tbody>
             @foreach($expenses as $expense)
-                <tr class="table-row border">
+                <tr class="table-row border p-8">
                     <!-- <td>{{ $expense->category_id}}</td> -->
-                    <td>{{ $expense->category }}</td>
+                    <td class="p-3">{{ $expense->category }}</td>
                     <td>${{ number_format($expense->amount, 2) }}</td>
                     <td>{{ $expense->date }}</td>
                     <td>{{ $expense->description ?? 'N/A' }}</td>
@@ -54,7 +56,6 @@
             @endforeach
         </tbody>
     </table>
-
     @else
         <div class="mb-8 flex justify-center">
             <p class="text-2xl">No expenses found.</p>

@@ -3,15 +3,15 @@
 @section('content')
 
 <div class="text-center">
-    <h2 class="m-8 mt-4 text-3xl">Your Budget</h2>
-    <span class="text-yellow-500">Note: you can only have one budget per category.</span>
+    <h2 class="m-8 mt-4 text-4xl">Your Budget (s)</h2>
+    <span class="text-yellow-500 text-2xl">Note: you can only have one budget per category.</span>
 </div>
 
 
 <div class="items-center justify-center mt-8 mx-auto">
     @if (count($budget) !== 0)
 
-    <table class="border-collapse border border-gray-400 table m-8 bg-white-700 p-8 mx-auto max-w-4xl w-full">
+    <table class="border-collapse border border-gray-400 table m-8 bg-white-700 p-8 mx-auto max-w-4xl w-full shadow-xl">
         <thead class="table-header-group">
             <tr class="table-row text-left">
                 <th>Budget Category</th>
@@ -37,7 +37,7 @@
         </tbody>
     </table>
     <div class="text-center">
-    <a href="{{ route('budget.create')}}" class="mt-8 bg-sky-500 text-white font-bold py-4 px-4 rounded hover:bg-sky-700">Create New Budget</a>
+    <a href="{{ route('budget.create')}}" class="mt-8 bg-sky-500 text-white font-bold py-4 px-4 rounded hover:bg-sky-700 shadow-xl">Create New Budget</a>
 </div>
     @else
 

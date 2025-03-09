@@ -3,9 +3,9 @@
 @section('content')
 <div class="grid md:grid-cols-6 gap-8 sm:grid-cols-1">
     <div></div>
-    <div class="col-span-2">
-        <h1 class="mb-4 text-5xl">Expenses Dashboard</h1> 
-            <div class="card p-8 bg-sky-500 text-white">
+    <div class="md:col-span-2 sm:col-span-1">
+        <h1 class="mb-4 text-5xl">Expenses</h1> 
+            <div class="card p-8 bg-sky-500 text-white shadow-xl">
                 @if(isset($totalBudget))
                     <h4>Total Budget: ${{ number_format($totalBudget, 2) }}</h4>
                 @else
@@ -25,7 +25,7 @@
                 @endif
             </div>
 
-            <div class="card p-3">
+            <div class="card p-3 w-fit shadow-xl">
                 <h4 class="mb-4">Spending by Category</h4>
 
                 <canvas class="h-24" id="spendingChart"></canvas>
@@ -53,7 +53,7 @@
 <div class="col-span-2">
         <div class="m-4">
     <h4 class="text-2xl">Recent Transactions</h4>
-        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8">
+        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 shadow-xl">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
                     <th>Date</th>
@@ -64,7 +64,7 @@
             <tbody>
             @if(isset($recentExpenses))
                 @foreach($recentExpenses as $expense)
-                    <tr class="table-row border odd:bg-white even:bg-gray-50 dark:odd:bg-gray-900/50 dark:even:bg-gray-950">
+                    <tr class="table-row border odd:bg-white even:bg-gray-50 dark:odd:bg-sky-400">
                         <td class="p-1">{{ $expense->created_at->format('Y-m-d') }}</td>
                         <td class="p-1">{{ $expense->category }}</td>
                         <td class="p-1">${{ number_format($expense->amount, 2) }}</td>
