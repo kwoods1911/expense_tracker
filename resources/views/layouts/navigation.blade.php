@@ -27,6 +27,10 @@
                     <x-nav-link class="text-white" :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
                       Expenses
                     </x-nav-link>
+
+                    <x-nav-link class="text-white" :href="route('news')" :active="request()->routeIs('expenses.index')">
+                        Upcomming Features
+                    </x-nav-link>
                     
                 </div>
             </div>
@@ -95,6 +99,10 @@
             <x-responsive-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
                 Expenses
             </x-responsive-nav-link>
+
+            <x-nav-link :href="route('news')" :active="request()->routeIs('expenses.index')">
+                Upcomming Features
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
