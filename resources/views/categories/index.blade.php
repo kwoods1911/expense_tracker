@@ -1,13 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-
-<div class="mt-4 text-center">
+<div class="mt-4 text-center text-4xl">
 <h1>Expense Categories</h1>
 </div>
     
-
+<div class="flex justify-center item-center">
     <div class="mt-4">
       <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-3 min-h-[300px] shadow-xl p-4">
         @foreach($categories as $category)
@@ -15,11 +13,9 @@
         @endforeach
     </ul>
     </div>
+</div>
 
-
-    <div class="mt-8">
+<div class="mt-8 flex justify-center item-center">
         <a href="{{ route('categories.create') }}" class="bg-sky-500 text-white font-bold py-4 px-6 rounded hover:bg-sky-700">Add New Category</a>
-    </div>
-  
 </div>
 @endsection

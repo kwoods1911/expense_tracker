@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container flex flex-col items-center justify-start mt-8">
-    <h1 class="mb-4 text-5xl">Dashboard</h1>
-
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card p-8 bg-sky-500 text-white">
+<div class="grid md:grid-cols-6 gap-8 sm:grid-cols-1">
+    <div></div>
+    <div class="md:col-span-2 sm:col-span-1">
+        <h1 class="mb-4 text-5xl">Expenses</h1> 
+            <div class="card p-8 bg-sky-500 text-white shadow-xl">
                 @if(isset($totalBudget))
                     <h4>Total Budget: ${{ number_format($totalBudget, 2) }}</h4>
                 @else
@@ -25,16 +24,18 @@
                 <h5>Remaining: $0.00</h5>
                 @endif
             </div>
-        </div>
 
-        <div class="col-md-6">
-            <div class="card p-3">
+            <div class="card p-3 w-fit shadow-xl">
                 <h4 class="mb-4">Spending by Category</h4>
 
-                <canvas id="spendingChart"></canvas>
+                <canvas class="h-24" id="spendingChart"></canvas>
+
+
+                <div class="bg-sky-500 p-3 m-3">
+
+                <h1 class="mb-4 text-white">Grouped by Category</h1>
 
                 <ul class="card p-3 bg-sky-500 text-white mt-4">
-
                 @if(isset($spendingByCategory))
                     @foreach($spendingByCategory as $category => $amount)
                         <li>{{ $category }}: ${{ number_format($amount, 2) }}</li>
@@ -44,13 +45,15 @@
                         <li>No expenses by category</li>
                     @endif
                 </ul>
+                </div>
+
             </div>
         </div>
-    </div>
 
-    <div class="mt-4 w-1/2">
-        <h4 class="text-2xl">Recent Transactions</h4>
-        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8">
+<div class="col-span-2">
+        <div class="m-4">
+    <h4 class="text-2xl">Recent Transactions</h4>
+        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 shadow-xl">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
                     <th>Date</th>
@@ -59,13 +62,12 @@
                 </tr>
             </thead>
             <tbody>
-
             @if(isset($recentExpenses))
                 @foreach($recentExpenses as $expense)
-                    <tr class="table-row border">
-                        <td>{{ $expense->created_at->format('Y-m-d') }}</td>
-                        <td>{{ $expense->category }}</td>
-                        <td>${{ number_format($expense->amount, 2) }}</td>
+                    <tr class="table-row border odd:bg-white even:bg-gray-50 dark:odd:bg-sky-400">
+                        <td class="p-1">{{ $expense->created_at->format('Y-m-d') }}</td>
+                        <td class="p-1">{{ $expense->category }}</td>
+                        <td class="p-1">${{ number_format($expense->amount, 2) }}</td>
                     </tr>
                 @endforeach
 
@@ -75,6 +77,11 @@
             </tbody>
         </table>
     </div>
+</div>
+   
+
+   
+ 
 </div>
 
 <script>

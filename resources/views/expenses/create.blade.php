@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container flex flex-col items-center justify-start mt-8">
+<div class="flex flex-col items-center justify-start mt-8">
     <h2 class="mb-4 text-3xl">Add Expense</h2>
 
     @if($errors->any())

@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container flex flex-col items-center justify-start mt-8">
-    <h2>Add New Category</h2>
+<div class="mt-4 text-center text-xl">
+<h2>Add New Category</h2>
+</div>
+<div class="flex justify-center item-center">
+   
     <form action="{{ route('categories.store') }}" method="POST" class="w-full max-w-md mt-8">
         @csrf
         <div class="mb-3">

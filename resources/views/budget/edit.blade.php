@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container flex flex-col items-center justify-start mt-8">
+<div class="flex flex-col items-center justify-start mt-8">
     <h2 class="text-2xl">Edit Your Budget</h2>
     <form action="{{ route('budget.update', $budget->id) }}" method="POST">
         @csrf
