@@ -13,7 +13,12 @@
             </ul>
         </div>
     @endif
+@php
 
+
+
+
+@endphp
     <form action="{{ route('expenses.update', $expense->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -21,10 +26,10 @@
 
     <div class="mb-3">
     <label for="category" class="block text-gray-700 font-bold mb-2">Category</label>
-    <select for="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
+    <select name="category" for="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
         <option value="">Select a category</option>
         @foreach(Auth::user()->categories as $category)
-            <option value="{{ $category->name }}" {{ $expense->category_id == $category->id ? 'selected' : '' }}>
+            <option value="{{ $category->name }}" {{ $expense->category_id == $category->id ? 'selected' : '' }} >
                 {{ $category->name }}
             </option>
         @endforeach
