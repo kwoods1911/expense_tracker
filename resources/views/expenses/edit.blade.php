@@ -13,12 +13,6 @@
             </ul>
         </div>
     @endif
-@php
-
-
-
-
-@endphp
     <form action="{{ route('expenses.update', $expense->id) }}" method="POST">
         @csrf
         @method('PUT')
