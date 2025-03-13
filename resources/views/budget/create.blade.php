@@ -14,12 +14,7 @@
     @endif
 
 
-    @if (count($categories) == 0)
-    <div>
-        <h1 class="m-8 flex mt-4 text-xl">Oops! You have no categories.</h1>
-        <a class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700 mt-8" href="{{ route('categories.create') }}">Create categories</a>
-    </div>
-    @else
+   
     <form action="{{ route('budget.store') }}" method="POST">
         @csrf
         <div class="mt-3">
@@ -53,8 +48,5 @@
         </div>
 
     </form>
-
-    @livewireScripts
-    @endif
 </div>
 @endsection
