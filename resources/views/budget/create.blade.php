@@ -43,6 +43,8 @@
                     @endforeach
                 </select>
             </div>
+
+           
         </div>
         <div class="flex justify-between mt-8">
                 <button type="submit" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Save Budget</button>
@@ -50,6 +52,8 @@
         </div>
 
     </form>
+
+    @livewireScripts
     @endif
 </div>
 @endsection

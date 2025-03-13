@@ -18,7 +18,7 @@ class BudgetController extends Controller
 
     public function create()
     {
-        $categories = Category::where('user_id', Auth::id())->get(); 
+        $categories = Category::all(); 
         return view('budget.create')->with('categories', $categories);
     }
 
@@ -26,8 +26,26 @@ class BudgetController extends Controller
     {
         $request->validate([
             'amount' => 'required|numeric|min:0',
-            'notification_threshold' => 'required|numeric|min:1'
+            'notification_threshold' => 'required|numeric|min:1',
+            'category' =>[
+                'required',
+                'string',
+                function ($attribute, $value, $fail){
+                    
+                    if(Budget::where('category', $value)->exists()){
+                     $fail('The ' . $attribute . ' already exist');   
+                    }
+                   
+                }
+            ]
+            
         ]);
+
+        //confirm that budget category isnt already taken
+
+        $categoryExists = Budget::where('category', $request->category)->get();
+
+        
 
         Budget::create([
             'user_id' => Auth::id(),
