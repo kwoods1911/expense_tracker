@@ -19,7 +19,7 @@ class BudgetController extends Controller
     public function create()
     {
         $categories = Category::all(); 
-        return view('budget.create')->with('categories', $categories);
+        return view('budget.create',compact('categories'));
     }
 
     public function store(Request $request)
@@ -57,18 +57,6 @@ class BudgetController extends Controller
         $this->authorize('update', $budget);
         return view('budget.edit', compact('budget'));
     }
-
-    // public function update(Request $request)
-    // {
-    //     $user = Auth::user();
-    //     $user->update([
-    //         'monthly_budget' => $request->monthly_budget,
-    //         'notification_threshold' => $request->notification_threshold,
-    //         'notification_type' => $request->notification_type,
-    //     ]);
-
-    //     return redirect()->back()->with('success', 'Budget settings updated!');
-    // }
 
 
 

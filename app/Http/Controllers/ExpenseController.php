@@ -18,7 +18,8 @@ class ExpenseController extends Controller
 
     public function create()
     {
-        return view('expenses.create');
+        $categories = Category::all();
+        return view('expenses.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -46,8 +47,9 @@ class ExpenseController extends Controller
 
     public function edit(Expense $expense)
     {
+        $categories = Category::all();
         $this->authorize('update', $expense);
-        return view('expenses.edit', compact('expense'));
+        return view('expenses.edit', compact('expense','categories'));
     }
 
     public function update(Request $request, Expense $expense)

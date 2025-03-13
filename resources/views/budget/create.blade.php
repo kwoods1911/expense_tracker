@@ -40,6 +40,7 @@
                 <select name="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
                     @foreach ($categories as $key => $category)
                         <option value="{{ $category->name }}">{{ $category->name }}</option> 
+                       
                     @endforeach
                 </select>
             </div>
