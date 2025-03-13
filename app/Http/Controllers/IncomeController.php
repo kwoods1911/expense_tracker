@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Income;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\IncomeCategory;
+
 class IncomeController extends Controller
 {
 
@@ -17,7 +19,9 @@ class IncomeController extends Controller
 
 
     public function create(){
-        return view('income.create');
+
+        $incomeCategory = IncomeCategory::all();
+        return view('income.create', compact($incomeCategory));
     }
 
     public function store(){
