@@ -13,14 +13,20 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     
+
+                <x-nav-link class="text-white" :href="route('income.index')" :active="request()->routeIs('budget.index')">
+                       Your Incomes
+                    </x-nav-link>
+
+
                     <x-nav-link class="text-white" :href="route('budget.index')" :active="request()->routeIs('budget.index')">
-                       Set Budget
+                       Your Budgets
                     </x-nav-link>
 
                     
 
                     <x-nav-link class="text-white" :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
-                      Expenses
+                      Your Expenses
                     </x-nav-link>
 
                     <x-nav-link class="text-white" :href="route('news')" :active="request()->routeIs('expenses.index')">
@@ -83,14 +89,18 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
+            <x-responsive-nav-link :href="route('income.index')" :active="request()->routeIs('budget.index')">
+                Your Income
+            </x-responsive-nav-link>
+
             <x-responsive-nav-link :href="route('budget.index')" :active="request()->routeIs('budget.index')">
-                Budget
+                Your Budgets
             </x-responsive-nav-link>
 
            
 
             <x-responsive-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
-                Expenses
+                Your Expenses
             </x-responsive-nav-link>
 
             <x-nav-link :href="route('news')" :active="request()->routeIs('expenses.index')">

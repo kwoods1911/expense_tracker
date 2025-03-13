@@ -8,6 +8,7 @@ use App\Http\Controllers\ExpenseController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IncomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/budget', [BudgetController::class, 'store'])->name('budget.store');
     Route::get('/budget/{budget}/edit', [BudgetController::class, 'edit'])->name('budget.edit');
     Route::put('/budget/{budget}', [BudgetController::class, 'update'])->name('budget.update');
+
+
+
+    Route::get('/income', [IncomeController::class, 'index'])->name('income.index');
+    Route::get('/income/create', [IncomeController::class, 'create'])->name('income.create');
+    Route::post('/income', [IncomeController::class, 'store'])->name('income.store');
+
+    Route::get('/income/{income}/edit', [IncomeController::class, 'edit'])->name('income.edit');
+    Route::put('/income/{income}', [IncomeController::class, 'update'])->name('income.update');
+    //create route to delete income.
 
 
 
