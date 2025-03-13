@@ -34,7 +34,11 @@
             <input type="number" step="0.01" name="amount" placeholder="e.g 1000" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
         </div>
 
- 
+
+        <div class="mb-3">
+            <label class="block text-gray-700 font-bold mb-2">Brief Description</label>
+            <input type="text" name="income_description" placeholder="Dividends" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
+        </div>
 
 
         <div class="flex justify-between mt-8">
