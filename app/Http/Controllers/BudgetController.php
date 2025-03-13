@@ -41,12 +41,6 @@ class BudgetController extends Controller
             
         ]);
 
-        //confirm that budget category isnt already taken
-
-        $categoryExists = Budget::where('category', $request->category)->get();
-
-        
-
         Budget::create([
             'user_id' => Auth::id(),
             'amount' => $request->amount,
