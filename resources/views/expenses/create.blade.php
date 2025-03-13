@@ -22,7 +22,7 @@
     
     <select name="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
         <option value="">Select a category</option>
-        @foreach(Auth::user()->categories as $category)
+        @foreach($categories as $category)
             <option value="{{ $category->name }}">{{ $category->name }}</option>
         @endforeach
     </select>

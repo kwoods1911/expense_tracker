@@ -18,15 +18,27 @@ class BudgetController extends Controller
 
     public function create()
     {
-        $categories = Category::where('user_id', Auth::id())->get(); 
-        return view('budget.create')->with('categories', $categories);
+        $categories = Category::all(); 
+        return view('budget.create',compact('categories'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'amount' => 'required|numeric|min:0',
-            'notification_threshold' => 'required|numeric|min:1'
+            'notification_threshold' => 'required|numeric|min:1',
+            'category' =>[
+                'required',
+                'string',
+                function ($attribute, $value, $fail){
+                    
+                    if(Budget::where('category', $value)->exists()){
+                     $fail('The ' . $attribute . ' already exist');   
+                    }
+                   
+                }
+            ]
+            
         ]);
 
         Budget::create([
@@ -45,18 +57,6 @@ class BudgetController extends Controller
         $this->authorize('update', $budget);
         return view('budget.edit', compact('budget'));
     }
-
-    // public function update(Request $request)
-    // {
-    //     $user = Auth::user();
-    //     $user->update([
-    //         'monthly_budget' => $request->monthly_budget,
-    //         'notification_threshold' => $request->notification_threshold,
-    //         'notification_type' => $request->notification_type,
-    //     ]);
-
-    //     return redirect()->back()->with('success', 'Budget settings updated!');
-    // }
 
 
 

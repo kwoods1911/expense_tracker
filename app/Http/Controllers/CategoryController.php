@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::where('user_id', Auth::id())->get();
-        return view('categories.index', compact('categories'));
+        // return view('categories.index', compact('categories'));
     }
 
     public function create()
@@ -30,7 +30,7 @@ class CategoryController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('categories.index')->with('success', 'Category created.');
+        // return redirect()->route('categories.index')->with('success', 'Category created.');
     }
 }
 

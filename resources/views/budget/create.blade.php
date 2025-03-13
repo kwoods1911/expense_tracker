@@ -14,12 +14,7 @@
     @endif
 
 
-    @if (count($categories) == 0)
-    <div>
-        <h1 class="m-8 flex mt-4 text-xl">Oops! You have no categories.</h1>
-        <a class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700 mt-8" href="{{ route('categories.create') }}">Create categories</a>
-    </div>
-    @else
+   
     <form action="{{ route('budget.store') }}" method="POST">
         @csrf
         <div class="mt-3">
@@ -40,9 +35,12 @@
                 <select name="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
                     @foreach ($categories as $key => $category)
                         <option value="{{ $category->name }}">{{ $category->name }}</option> 
+                       
                     @endforeach
                 </select>
             </div>
+
+           
         </div>
         <div class="flex justify-between mt-8">
                 <button type="submit" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Save Budget</button>
@@ -50,6 +48,5 @@
         </div>
 
     </form>
-    @endif
 </div>
 @endsection

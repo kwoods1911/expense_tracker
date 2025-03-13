@@ -12,12 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-
-                    <x-nav-link class="text-white" :href="route('categories.index')" :active="request()->routeIs('categories.index')">
-                       Categories
-                    </x-nav-link>
-
-
+                    
                     <x-nav-link class="text-white" :href="route('budget.index')" :active="request()->routeIs('budget.index')">
                        Set Budget
                     </x-nav-link>
@@ -92,9 +87,7 @@
                 Budget
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
-                Category
-            </x-responsive-nav-link>
+           
 
             <x-responsive-nav-link :href="route('expenses.index')" :active="request()->routeIs('expenses.index')">
                 Expenses
