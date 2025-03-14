@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="text-center">
-    <h2 class="m-8 mt-4 text-4xl">Your Budget (s)</h2>
+    <h2 class="m-8 mt-4 text-4xl">My Total Budget  $ {{ $totalBudget }}</h2>
     <span class="text-yellow-500 text-2xl">Note: you can only have one budget per category.</span>
 </div>
 

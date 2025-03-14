@@ -13,8 +13,14 @@ class IncomeController extends Controller
 
 
     public function index(){
-        $incomes = Income::where('user_id',Auth::id())->get();
-        return view('income.index', compact('incomes'));
+
+        $user_id = Auth::id();
+
+        $incomes = Income::where('user_id',$user_id)->get();
+
+        $totalIncome = number_format(Income::where('user_id', $user_id)->sum('amount'),2);
+
+        return view('income.index', compact('incomes', 'totalIncome'));
     }
 
 

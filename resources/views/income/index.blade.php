@@ -11,7 +11,7 @@
         <h2 class="text-4xl font-bold">
             My Income
 
-            <span>$0.00</span>
+            <span>$ {{ $totalIncome }}</span>
         </h2>
     </div>
     <div class="mt-4 flex justify-center">
