@@ -32,7 +32,6 @@
                 <!-- <th>Category ID</th> -->
                 <th class="p-3">Category</th>
                 <th>Amount</th>
-                <th>Date</th>
                 <th>Description</th>
                 <th>Actions</th>
             </tr>
@@ -42,11 +41,9 @@
         <tbody>
             @foreach($incomes as $income)
                 <tr class="table-row border p-8">
-                    <!-- <td>{{ $expense->category_id}}</td> -->
-                    <td class="p-3">{{ $income->category }}</td>
+                    <td class="p-3">{{ $income->name }}</td>
                     <td>${{ number_format($income->amount, 2) }}</td>
-                    <td>{{ $income->date }}</td>
-                    <td>{{ $income->description ?? 'N/A' }}</td>
+                    <td>{{ $income->income_description ?? 'N/A' }}</td>
                     <td class="float-left">
                         <div class="flex space-x-2">
                             <a href="{{ route('income.edit', $income->id) }}" class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700">Edit</a>

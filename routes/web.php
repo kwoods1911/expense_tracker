@@ -48,6 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/income/{income}/edit', [IncomeController::class, 'edit'])->name('income.edit');
     Route::put('/income/{income}', [IncomeController::class, 'update'])->name('income.update');
     //create route to delete income.
+    Route::delete('/income/{income}', [IncomeController::class, 'delete'])->name('income.destroy');
 
 
 

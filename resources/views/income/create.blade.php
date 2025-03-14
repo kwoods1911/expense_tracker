@@ -24,7 +24,11 @@
     
     <select name="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
         <option value="">Select a category</option>
-        <option value=""></option>
+
+        @foreach($incomeCategory as $category)
+            <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+        @endforeach
+        
     </select>
 </div>
 
