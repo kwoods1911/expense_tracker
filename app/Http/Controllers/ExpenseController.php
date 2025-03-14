@@ -12,8 +12,9 @@ class ExpenseController extends Controller
     public function index()
     {
         $expenses = auth()->user()->expenses()->latest()->get();
-       
-        return view('expenses.index', compact('expenses'));
+
+        $totalExpense = number_format(auth()->user()->expenses()->sum('amount'), 2);
+        return view('expenses.index', compact('expenses', 'totalExpense'));
     }
 
     public function create()

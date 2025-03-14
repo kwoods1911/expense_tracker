@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="grid md:grid-cols-6 gap-8 sm:grid-cols-1">
+<div class="grid md:grid-cols-8 gap-8 sm:grid-cols-1">
     <div></div>
+
     <div class="md:col-span-2 sm:col-span-1">
         <h1 class="mb-4 text-5xl">Expenses</h1> 
+
             <div class="card p-8 bg-sky-500 text-white shadow-xl">
                 @if(isset($totalBudget))
                     <h4>Total Budget: ${{ number_format($totalBudget, 2) }}</h4>
@@ -50,6 +52,60 @@
             </div>
         </div>
 
+    <div class="col-span-2">
+        <div class="m-4">
+    <h4 class="text-2xl">Net Savings</h4>
+        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 shadow-xl">
+            <thead class="table-header-group">
+                <tr class="table-row text-left">
+                    <th>Total Income</th>
+                    <th> - </th>
+                    <th>Total Expense (s)</th>
+                    <th>Net Savings</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            
+                    <tr class="table-row border odd:bg-white even:bg-gray-50 dark:odd:bg-sky-400">
+                        <td class="p-1">$ {{$totalIncome}}</td>
+                        <td class="p-1"></td>
+                        <td class="p-1">$ {{$totalSpent}}</td>
+                        <td class="p-1">$  {{$netSavings}}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="card p-3 w-fit shadow-xl">
+                <h4 class="mb-4">Spending by Income</h4>
+
+                <canvas class="h-24" id="incomeChart"></canvas>
+
+
+                <div class="bg-sky-500 p-3 m-3">
+
+                <h1 class="mb-4 text-white">Grouped by Category</h1>
+
+                <ul class="card p-3 bg-sky-500 text-white mt-4">
+                @if(isset($incomeByCategory))
+                    @foreach($incomeByCategory as $category => $amount)
+                        <li>{{ $category }}: ${{ number_format($amount, 2) }}</li>
+                    @endforeach
+
+                    @else
+                        <li>No expenses by category</li>
+                    @endif
+                </ul>
+                </div>
+
+            </div>
+</div>
+   
+
+
+
 <div class="col-span-2">
         <div class="m-4">
     <h4 class="text-2xl">Recent Transactions</h4>
@@ -80,7 +136,6 @@
 </div>
    
 
-   
  
 </div>
 
@@ -88,6 +143,9 @@
     // Get data from Laravel
     const categories = {!! json_encode($spendingByCategory->keys()) !!};
     const amounts = {!! json_encode($spendingByCategory->values()) !!};
+
+    const incomeCategories = {!! json_encode($incomeByCategory->keys()) !!};
+    const incomeAmount = {!! json_encode($incomeByCategory->values()) !!};
 
     // Chart.js configuration
     const ctx = document.getElementById('spendingChart').getContext('2d');
@@ -98,6 +156,20 @@
             datasets: [{
                 label: 'Spending by Category',
                 data: amounts,
+                backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56', '#4bc0c0', '#9966ff'],
+            }]
+        }
+    });
+
+
+    const inc = document.getElementById('incomeChart').getContext('2d');
+    new Chart(inc, {
+        type: 'doughnut',
+        data: {
+            labels: incomeCategories,
+            datasets: [{
+                label: 'Spending by Category',
+                data: incomeAmount,
                 backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56', '#4bc0c0', '#9966ff'],
             }]
         }

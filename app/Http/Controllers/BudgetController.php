@@ -12,8 +12,12 @@ class BudgetController extends Controller
 
     public function index()
     {
-        $budget = Budget::where('user_id', Auth::id())->get();
-        return view('budget.index', compact('budget'));
+
+        $user_id = Auth::id();
+        $budget = Budget::where('user_id', $user_id )->get();
+
+        $totalBudget = number_format(Budget::where('user_id', $user_id)->sum('amount'),2);
+        return view('budget.index', compact('budget', 'totalBudget'));
     }
 
     public function create()
