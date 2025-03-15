@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <form action="{{ route('expenses.store') }}" method="POST">
+    <form action="{{ route('expenses.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
 <div class="mb-3">
@@ -27,10 +27,6 @@
         @endforeach
     </select>
 </div>
-        <!-- <div class="mb-3">
-            <label class="block text-gray-700 font-bold mb-2">Category</label>
-            <input type="text" name="category" placeholder="e.g entertainment" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
-        </div> -->
 
         <div class="mb-3">
             <label class="block text-gray-700 font-bold mb-2">Amount</label>
@@ -45,6 +41,12 @@
         <div class="mb-3">
             <label class="block text-gray-700 font-bold mb-2">Description (optional)</label>
             <textarea name="description" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" placeholder="e.g Spent money on ...."></textarea>
+        </div>
+
+
+        <div class="mb-3">
+        <label for="receipt"  class="block text-gray-700 font-bold mb-2">Receipt (PDF  of jpeg)</label>
+        <input type="file" name="receipt" id="receipt" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
         </div>
 
 

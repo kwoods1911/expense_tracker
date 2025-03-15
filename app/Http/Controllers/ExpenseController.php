@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Expense;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Storage;
+
 class ExpenseController extends Controller
 {
     public function index()
@@ -25,14 +27,25 @@ class ExpenseController extends Controller
 
     public function store(Request $request)
     {
+
+        
         $request->validate([
             'category' => 'required|string|max:255',
             'amount' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+            'receipt' => 'nullable|file|mimes:jpeg,jpg,png,pdf|max:50000'
         ]);
 
+        
+           
+        
 
+        $receiptPath = null;
+        if ($request->hasFile('receipt')){
+            $receiptPath = $request->file('receipt')->store('receipts', 's3');
+            Storage::disk('s3')->setVisibility($receiptPath, 'public');
+        }
        
         Expense::create([
             'user_id' => Auth::id(),
@@ -40,7 +53,8 @@ class ExpenseController extends Controller
             'date' => $request->date,
             'category' => $request->category,
             'amount' => $request->amount,
-            'category_id' => $request->category_id
+            'category_id' => $request->category_id,
+            'receipt_path' => $receiptPath
         ]);
 
         return redirect()->route('expenses.index')->with('success', 'Expense added successfully.');
