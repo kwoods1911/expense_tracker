@@ -13,7 +13,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('expenses.update', $expense->id) }}" method="POST">
+    <form action="{{ route('expenses.update', $expense->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -43,6 +43,15 @@
         <div class="mb-3">
             <label class="form-label">Description (optional)</label>
             <textarea name="description" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">{{ $expense->description }}</textarea>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="receipt" class="block text-gray-700 font-bold mb-2">Receipt (PDF or JPEG)</label>
+            <input type="file" name="receipt" id="receipt" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
+            @if($expense->receipt_path)
+                <p>Current Receipt: <a href="{{ Storage::disk('s3')->url($expense->receipt_path) }}" target="_blank">View Receipt</a></p>
+            @endif
         </div>
 
 

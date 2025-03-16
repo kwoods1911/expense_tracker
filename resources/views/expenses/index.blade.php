@@ -24,7 +24,6 @@
     <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl shadow-xl">
         <thead class="table-header-group">
             <tr class="table-row text-left">
-                <!-- <th>Category ID</th> -->
                 <th class="p-3">Category</th>
                 <th>Amount</th>
                 <th>Date</th>
@@ -37,7 +36,6 @@
         <tbody>
             @foreach($expenses as $expense)
                 <tr class="table-row border p-8">
-                    <!-- <td>{{ $expense->category_id}}</td> -->
                     <td class="p-3">{{ $expense->category }}</td>
                     <td>${{ number_format($expense->amount, 2) }}</td>
                     <td>{{ $expense->date }}</td>
@@ -45,10 +43,21 @@
                     <td class="float-left">
                         <div class="flex space-x-2">
                             <a href="{{ route('expenses.edit', $expense->id) }}" class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700">Edit</a>
+
+
+                            @if($expense->receipt_url)
+                                <a href="{{ $expense->receipt_url }}" class="bg-purple-500 text-white font-bold py-2 px-4 rounded hover:bg-purple-700" target="_blank">Download Receipt</a>
+                            @else
+                            <div class="bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                            No Receipt
+                            </div>
+                            
+                            @endif
+
                             <form action="{{ route('expenses.destroy', $expense->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700" onclick="return confirm('Are you sure?')">Delete</button>
+                                <button type="submit" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700" onclick="return confirm('Are you sure? Doing this will also delete any receipts that you have.')">Delete</button>
                             </form>
                         </div>
                     </td>
