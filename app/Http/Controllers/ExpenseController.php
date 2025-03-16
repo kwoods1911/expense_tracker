@@ -75,14 +75,28 @@ class ExpenseController extends Controller
             'category' => 'required|string|max:255',
             'amount' => 'required|numeric|min:0',
             'date' => 'required|date',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+        'receipt' => 'nullable|file|mimes:jpeg,jpg,png,pdf|max:50000'
         ]);
 
+
+        $receiptPath = $expense->receipt_path;
+        if ($request->hasFile('receipt')) {
+            // Delete the old receipt if it exists
+            if ($receiptPath) {
+                Storage::disk('s3')->delete($receiptPath);
+            }
+            // Store the new receipt
+            $receiptPath = $request->file('receipt')->store('receipts', 's3');
+            Storage::disk('s3')->setVisibility($receiptPath, 'public');
+        }
+    
         $expense->update([
             'category' => $request->category,
             'description' => $request->description,
             'amount' => $request->amount,
-            'category_id' => $request->category_id
+            'category_id' => $request->category_id,
+            'receipt_path' => $receiptPath
         ]);
 
         return redirect()->route('expenses.index')->with('success', 'Expense updated successfully.');
@@ -91,8 +105,8 @@ class ExpenseController extends Controller
     public function destroy(Expense $expense)
     {
         $this->authorize('delete', $expense);
+        if ($expense->receipt_path) Storage::disk('s3')->delete($expense->receipt_path);
         $expense->delete();
-
         return redirect()->route('expenses.index')->with('success', 'Expense deleted successfully.');
     }
 }
