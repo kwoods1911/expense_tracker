@@ -4,7 +4,7 @@
 
 <div class="text-center">
     <h2 class="m-8 mt-4 text-4xl">My Total Budget  $ {{ $totalBudget }}</h2>
-    <span class="text-yellow-500 text-2xl">Note: you can only have one budget per category.</span>
+    <span class="">Note: you can only have one budget per category.</span>
 </div>
 
 
@@ -27,11 +27,21 @@
             @foreach($budget as $information)
             <tr class="table-row border">
                 <td>
-                    <p class="text-2xl p-1"> {{$information->category}}: </p>
+                    <p class="p-1"> {{$information->category}}: </p>
                 </td>
                 <td>${{ number_format($information->amount, 2) }}</td>
                 <td>{{$information->notification_threshold}} %</td>
-                <td class="p-1"><a href="{{ route('budget.edit', $information->id) }}" class="mt-8 bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Edit Budget</a></td>
+                <td class="p-1">
+                    <div class="hidden md:flex">
+                        <a href="{{ route('budget.edit', $information->id) }}" class="mt-8 bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Edit Budget</a>
+                    </div>
+
+                    
+                    <div class="block md:hidden">
+                        <a href="{{ route('budget.edit', $information->id) }}" class=" text-sky-500 font-bold text-sm">Edit Budget</a>
+                    </div>
+                
+                </td>
             </tr>
             @endforeach
         </tbody>
