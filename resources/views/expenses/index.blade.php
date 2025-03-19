@@ -23,7 +23,9 @@
 
    
     @if(count($expenses) !== 0)
-    <table class="hidden border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl shadow-xl">
+    
+    <div class="hidden md:block">
+    <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl shadow-xl">
         <thead class="table-header-group">
             <tr class="table-row text-left">
                 <th class="p-3">Category</th>
@@ -65,58 +67,65 @@
         </tbody>
     </table>
 
+    </div>
+
+
+
 
 
     @foreach($expenses as $expense)   
-        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl shadow-xl">
+    
+    <div class="block md:hidden">
+    <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 mx-auto max-w-7xl shadow-xl">
        
-        <tr class="table-row border p-8">
-            
-           <td class="font-bold">Category</td>
-            <td> {{ $expense->category }}</td>
-           </tr>
-
-           <tr class="table-row border p-8">
-            <td class="font-bold">Amount</td>
-            <td> ${{ number_format($expense->amount, 2) }}</td>
-           </tr>
-
-           <tr class="table-row border p-8">
-            <td class="font-bold">Date</td>
-            <td>{{ $expense->date }}</td>
-           </tr>
-
-                <tr class="table-row border p-8">
-                    <td class="font-bold">Description</td>
-                    <td> {{ $expense->description ?? 'N/A' }}</td>
-                </tr>
-                
-
-                <tr class="table-row border p-8">
-                    <td class="font-bold">Actions</td>
-                    <td class="px-2 py-2">
-                        <span>
-                            <a href="{{ route('expenses.edit', $expense->id) }}">Edit</a>
-                        </span>
-                        <br>
-                        @if($expense->receipt_url)
-                                <a href="{{ $expense->receipt_url }}" target="_blank">Download Receipt</a>
-                            @else
-                            <span>
-                                No Receipt
-                            </span>
-                            @endif
-                        <br>
-                        <form action="{{ route('expenses.destroy', $expense->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" onclick="return confirm('Are you sure? Doing this will also delete any receipts that you have.')">Delete</button>
-                            </form>
-                    </td>               
-            </tr>
-
+       <tr class="table-row border p-8">
            
-        </table>
+          <td class="font-bold">Category</td>
+           <td> {{ $expense->category }}</td>
+          </tr>
+
+          <tr class="table-row border p-8">
+           <td class="font-bold">Amount</td>
+           <td> ${{ number_format($expense->amount, 2) }}</td>
+          </tr>
+
+          <tr class="table-row border p-8">
+           <td class="font-bold">Date</td>
+           <td>{{ $expense->date }}</td>
+          </tr>
+
+               <tr class="table-row border p-8">
+                   <td class="font-bold">Description</td>
+                   <td> {{ $expense->description ?? 'N/A' }}</td>
+               </tr>
+               
+
+               <tr class="table-row border p-8">
+                   <td class="font-bold">Actions</td>
+                   <td class="px-2 py-2">
+                       <span>
+                           <a href="{{ route('expenses.edit', $expense->id) }}">Edit</a>
+                       </span>
+                       <br>
+                       @if($expense->receipt_url)
+                               <a href="{{ $expense->receipt_url }}" target="_blank">Download Receipt</a>
+                           @else
+                           <span>
+                               No Receipt
+                           </span>
+                           @endif
+                       <br>
+                       <form action="{{ route('expenses.destroy', $expense->id) }}" method="POST">
+                               @csrf
+                               @method('DELETE')
+                               <button type="submit" onclick="return confirm('Are you sure? Doing this will also delete any receipts that you have.')">Delete</button>
+                           </form>
+                   </td>               
+           </tr>
+       </table>
+    </div>
+
+    
 
         @endforeach
 
