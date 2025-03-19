@@ -48,7 +48,7 @@
                         <div class="flex space-x-2">
                             <a href="{{ route('expenses.edit', $expense->id) }}" class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700">Edit</a>
                             @if($expense->receipt_url)
-                                <a href="{{ $expense->receipt_url }}" class="bg-purple-500 text-white text-sm font-bold rounded hover:bg-purple-700" target="_blank">Download Receipt</a>
+                                <a href="{{ $expense->receipt_url }}" class="bg-purple-500 text-white font-bold rounded hover:bg-purple-700" target="_blank">Download Receipt</a>
                             @else
                             <div class="bg-gray-500 text-white font-bold py-2 px-4 rounded">
                             No Receipt
@@ -124,9 +124,9 @@
 
             <td class="px-2 py-2 w-1/2">
             @if($expense->receipt_url)
-                <a href="{{ $expense->receipt_url }}" target="_blank" class="rounded text-sm text-white bg-purple-500 font-bold p-2">Download Receipt</a>
+                <a href="{{ $expense->receipt_url }}" target="_blank" class="rounded text-sm text-white bg-purple-500 font-bold p-2 m-2">Download Receipt</a>
             @else
-            <span class="rounded text-sm text-white bg-gray-500 font-bold p-2">
+            <span class="rounded text-sm text-white bg-gray-500 font-bold p-2 m-2">
                 No Receipt
             </span>
             @endif
