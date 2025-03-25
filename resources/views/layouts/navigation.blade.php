@@ -30,7 +30,7 @@
                     </x-nav-link>
 
                     <x-nav-link class="text-white" :href="route('news')" :active="request()->routeIs('expenses.index')">
-                        Upcomming Features
+                        About Project
                     </x-nav-link>
                     
                 </div>

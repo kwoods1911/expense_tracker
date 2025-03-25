@@ -35,7 +35,7 @@ class IncomeController extends Controller
         $request->validate([
             'category' => 'required|string|max:255',
             'amount' => 'required|numeric|min:0',
-            'income_description' => 'nullable|string'
+            'income_description' => 'required|string|max:255'
         ]);
 
         Income::create([
