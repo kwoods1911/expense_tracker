@@ -1,3 +1,4 @@
+
 <x-guest-layout class="bg-sky-500">
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
