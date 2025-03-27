@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="grid md:grid-cols-8 gap-8 sm:grid-cols-1">
-    <div></div>
 
     <div class="md:col-span-2 sm:col-span-1">
         <h1 class="mb-4 text-5xl">Expenses</h1> 
@@ -55,7 +54,7 @@
     <div class="col-span-2">
         <div class="m-4">
     <h4 class="text-2xl">Net Savings</h4>
-        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 shadow-xl">
+        <table class="border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
                     <th>Total Income</th>
@@ -109,7 +108,7 @@
 <div class="col-span-2">
         <div class="m-4">
     <h4 class="text-2xl">Recent Transactions</h4>
-        <table class="border-collapse border border-gray-400 table w-full m-8 bg-white-700 p-8 shadow-xl">
+        <table class="border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
                     <th>Date</th>
