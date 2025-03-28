@@ -17,8 +17,8 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-            'name'=> 'Admin',
-            'email' => 'test@admin.com',
+            'name'=> 'Test User',
+            'email' => 'test@user.com',
             'monthly_budget' => 1000,
             'total_spent' => 500,
             'email_verified_at' => now(),
