@@ -46,7 +46,7 @@
 
 
         <div class="flex justify-between mt-8">
-            <button type="submit" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700" onclick="return confirm('Confirm that you want to add this expense.')">Save</button>
+            <button type="submit" class="bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700" onclick="return confirm('Confirm that you want to add this income.')">Save</button>
             <a href="{{ route('income.index') }}" class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700">Cancel</a>
         </div>
 
