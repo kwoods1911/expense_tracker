@@ -26,6 +26,17 @@ class ExpenseSeeder extends Seeder
                 'category_id' => Category::find(1)->id,
                 'receipt_path' => null,
             ],
+            [
+                'user_id' => 1,
+                'category' => Category::find(2)->name,
+                'amount' => 900,
+                'date' => now(),
+                'description' => 'Light and Water Bill',
+                'created_at' => now(),
+                'updated_at' => now(),
+                'category_id' => Category::find(2)->id,
+                'receipt_path' => null,
+            ],
         ]);
     }
 }

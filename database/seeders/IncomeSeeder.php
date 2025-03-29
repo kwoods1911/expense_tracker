@@ -23,6 +23,23 @@ class IncomeSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'user_id' => 1,
+                'name' => IncomeCategory::find(3)->category_name,
+                'amount' => 200,
+                'income_description' => 'Photography job',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'user_id' => 1,
+                'name' => IncomeCategory::find(6)->category_name,
+                'amount' => 50,
+                'income_description' => 'Cutting grass',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
