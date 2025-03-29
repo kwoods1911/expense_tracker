@@ -52,9 +52,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 
-    Route::get('/news',function(){
+    Route::get('/project-description',function(){
         return view('news');
-    })->name('news');
+    })->name('project-description');
 
 });
 

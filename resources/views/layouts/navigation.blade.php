@@ -29,8 +29,8 @@
                       Your Expenses
                     </x-nav-link>
 
-                    <x-nav-link class="text-white" :href="route('news')" :active="request()->routeIs('expenses.index')">
-                        About Project
+                    <x-nav-link class="text-white" :href="route('project-description')" :active="request()->routeIs('expenses.index')">
+                        Project Description
                     </x-nav-link>
                     
                 </div>
@@ -101,8 +101,8 @@
                 Your Expenses
             </x-responsive-nav-link>
 
-            <x-nav-link :href="route('news')" :active="request()->routeIs('expenses.index')">
-                Upcomming Features
+            <x-nav-link :href="route('project-description')" :active="request()->routeIs('expenses.index')">
+                Project Description
             </x-nav-link>
         </div>
 
