@@ -47,7 +47,10 @@
         <div class="mb-3">
         <label for="receipt"  class="block text-gray-700 font-bold mb-2">Receipt (PDF  of jpeg)</label>
         <input type="file" name="receipt" id="receipt" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
+       
         </div>
+
+        <span>Note: Max File is 50 MB</span>
 
 
 
