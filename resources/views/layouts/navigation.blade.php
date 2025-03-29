@@ -87,7 +87,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('income.index')" :active="request()->routeIs('budget.index')">
+            <x-responsive-nav-link :href="route('income.index')" :active="request()->routeIs('income.index')">
                 Your Income
             </x-responsive-nav-link>
 
@@ -101,9 +101,9 @@
                 Your Expenses
             </x-responsive-nav-link>
 
-            <x-nav-link :href="route('project-description')" :active="request()->routeIs('expenses.index')">
+             <x-responsive-nav-link :href="route('project-description')" :active="request()->routeIs('project-description')">
                 Project Description
-            </x-nav-link>
+            </x-responsive-nav-link> 
         </div>
 
         <!-- Responsive Settings Options -->
@@ -119,7 +119,9 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-responsive-nav-link 
+                            class="text-white hover:text-gray-500 transition duration-300"
+                            :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
