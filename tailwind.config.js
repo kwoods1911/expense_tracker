@@ -14,6 +14,10 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            screens: {
+                largeMobile: '425px', // Custom breakpoint for extra small screens
+                xsmallmobile: '320px', // Custom breakpoint for extra small screens
+            },
         },
     },
 
