@@ -49,4 +49,10 @@
             </x-primary-button>
         </div>
     </form>
+
+    <div>
+        <span>Demo Account</span>
+        <p>Email: test@elcheapo.com</p>
+        <p>Password: password</p>
+    </div>
 </x-guest-layout>
