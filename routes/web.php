@@ -53,7 +53,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     Route::get('/project-description',function(){
-        return view('news');
+        return view('project-description');
     })->name('project-description');
 
 });
