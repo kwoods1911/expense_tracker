@@ -3,6 +3,19 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+
+    <div class="m-5">
+
+    <div>
+        <h1 class="text-3xl text-center text-gray-800 font-bold">Welcome to El Cheapo</h1>
+        <p class="text-center text-gray-800">Your personal finance tracker</p>
+    </div>
+
+    <div class="text-sm m-5">
+        <span>Demo Account</span>
+        <p>Email: test@elcheapo.com Password: password</p>
+    </div>
+
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -50,9 +63,10 @@
         </div>
     </form>
 
-    <div>
-        <span>Demo Account</span>
-        <p>Email: test@elcheapo.com</p>
-        <p>Password: password</p>
+
+
     </div>
+
+
+
 </x-guest-layout>
