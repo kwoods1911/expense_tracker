@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="grid md:grid-cols-8 gap-8 sm:grid-cols-1">
+<div class="grid sm:grid-cols-1 smLaptopScreen:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-    <div class="md:col-span-2 sm:col-span-1">
-        <h1 class="mb-4 text-5xl">Expenses</h1> 
+    <div class="sm:col-span-1 mdMobile:p-8 lgMobile:p-16 md:p-0">
+        <h1 class="mb-4 text-5xl text-center md:text-left">Expenses</h1> 
 
-            <div class="card p-8 bg-sky-500 text-white shadow-xl">
+            <div class="w-fit card p-8 bg-sky-500 text-white shadow-xl">
                 @if(isset($totalBudget))
                     <h4>Total Budget: ${{ number_format($totalBudget, 2) }}</h4>
                 @else
@@ -26,7 +26,7 @@
                 @endif
             </div>
 
-            <div class="card p-3 w-fit shadow-xl">
+            <div class="sm:col-span-1 w-fit card p-3 shadow-xl">
                 <h4 class="mb-4">Spending by Category</h4>
 
                 <canvas class="h-24" id="spendingChart"></canvas>
@@ -51,10 +51,10 @@
             </div>
         </div>
 
-    <div class="col-span-2">
+    <div class="sm:col-span-1 mdMobile:p-8 lgMobile:p-16 md:p-0">
         <div class="m-4">
     <h4 class="text-2xl">Net Savings</h4>
-        <table class="border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
+        <table class="w-fit border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
                     <th>Total Income</th>
@@ -77,16 +77,11 @@
     </div>
 
 
-    <div class="card p-3 w-fit shadow-xl">
+    <div class="sm:col-span-1 card p-3 w-fit shadow-xl">
                 <h4 class="mb-4">Spending by Income</h4>
-
                 <canvas class="h-24" id="incomeChart"></canvas>
-
-
                 <div class="bg-sky-500 p-3 m-3">
-
                 <h1 class="mb-4 text-white">Grouped by Category</h1>
-
                 <ul class="card p-3 bg-sky-500 text-white mt-4">
                 @if(isset($incomeByCategory))
                     @foreach($incomeByCategory as $category => $amount)
@@ -105,7 +100,7 @@
 
 
 
-<div class="col-span-2">
+<div class="sm:col-span-2">
         <div class="m-4">
     <h4 class="text-2xl">Recent Transactions</h4>
         <table class="border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
