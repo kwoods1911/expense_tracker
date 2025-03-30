@@ -6,10 +6,20 @@
 </div>
 
 <div>
-    <h3 class="font-bold">El Cheapo - Expense Tracker</h3>
+    <h3 class="mt-2 font-bold">El Cheapo - Expense Tracker</h3>
 </div>
 
-<p class="mt-2">El Cheapo is a simple expense tracker designed to help users manage their finances effectively. The application includes the following features:</p>
+<p class="mt-2">El Cheapo is a simple expense tracker designed to help users manage their finances effectively.</p>
+
+<h4 class="mt-4 font-bold">Instructions</h4>
+<p>This application is extremely simple to use. </p>
+<ul>
+    <li>1. Add your <a href="/income" class="text-sky-700 underline font-bold">Income</a> </li>
+    <li>2. Add your <a href="/budget" class="text-sky-700 underline font-bold"> Budgets</a></li>
+    <li>3. Add your <a href="/expenses" class="text-sky-700 underline font-bold">Expenses</a></li>
+    <li>4. Lastly view the data in the <a href="/dashboard" class="text-sky-700 underline font-bold">Dashboard</a></li>
+</ul>
+<p class="mt-2">The application includes the following features:</p>
 
 <div class="">
     <div class="mt-4">
