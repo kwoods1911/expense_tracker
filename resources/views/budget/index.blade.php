@@ -3,7 +3,15 @@
 @section('content')
 
 <div class="text-center">
-    <h2 class="m-8 mt-4 text-4xl">My Total Budget  $ {{ $totalBudget }}</h2>
+    <h2 class="m-8 mt-4 text-4xl font-bold">My Total Budget  
+
+    <br>
+    <span class="mt-4">
+    $ {{ $totalBudget }}
+    </span>
+    
+
+</h2>
 </div>
 
 

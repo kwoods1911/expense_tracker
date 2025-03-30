@@ -6,11 +6,11 @@
         <div class="bg-green-500 text-white w-1/4 mx-auto mt-4 p-4 rounded shadow-lg">{{ session('success') }}</div>
     @endif
 <div>
-    <div class="mt-8 flex justify-center">
+    <div class="mt-8 text-center">
         <h2 class="text-4xl font-bold">
             My Total Expenses 
             <br>
-        <span>${{ $totalExpense }}</span>    
+        <span class="mt-4">${{ $totalExpense }}</span>    
         </h2>
     </div>
     <div class="mt-4 flex justify-center">
