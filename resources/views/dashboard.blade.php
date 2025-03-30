@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="grid md:grid-cols-8 gap-8 sm:grid-cols-1">
+<div class="grid sm:grid-cols-1 smLaptopScreen:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 mdLaptopScreen:grid-cols-4 gap-8">
+    <div class="sm:col-span-1 mdMobile:p-8 lgMobile:p-16 md:p-0">
+        <h1 class="mb-4 text-5xl text-center md:text-left">Expenses</h1> 
 
-    <div class="md:col-span-2 sm:col-span-1">
-        <h1 class="mb-4 text-5xl">Expenses</h1> 
-
-            <div class="card p-8 bg-sky-500 text-white shadow-xl">
+            <div class="w-fit card p-8 bg-sky-500 text-white shadow-xl">
                 @if(isset($totalBudget))
                     <h4>Total Budget: ${{ number_format($totalBudget, 2) }}</h4>
                 @else
@@ -26,7 +25,7 @@
                 @endif
             </div>
 
-            <div class="card p-3 w-fit shadow-xl">
+            <div class="sm:col-span-1 w-fit card p-3 shadow-xl">
                 <h4 class="mb-4">Spending by Category</h4>
 
                 <canvas class="h-24" id="spendingChart"></canvas>
@@ -37,7 +36,7 @@
                 <h1 class="mb-4 text-white">Grouped by Category</h1>
 
                 <ul class="card p-3 bg-sky-500 text-white mt-4">
-                @if(isset($spendingByCategory))
+                @if(isset($spendingByCategory) && $spendingByCategory->count() > 0)
                     @foreach($spendingByCategory as $category => $amount)
                         <li>{{ $category }}: ${{ number_format($amount, 2) }}</li>
                     @endforeach
@@ -51,10 +50,10 @@
             </div>
         </div>
 
-    <div class="col-span-2">
+    <div class="sm:col-span-1 mdMobile:p-8 lgMobile:p-16 md:p-0">
         <div class="m-4">
     <h4 class="text-2xl">Net Savings</h4>
-        <table class="border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
+        <table class="w-fit border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
             <thead class="table-header-group">
                 <tr class="table-row text-left">
                     <th>Total Income</th>
@@ -77,18 +76,13 @@
     </div>
 
 
-    <div class="card p-3 w-fit shadow-xl">
+    <div class="sm:col-span-1 card p-3 w-fit shadow-xl">
                 <h4 class="mb-4">Spending by Income</h4>
-
                 <canvas class="h-24" id="incomeChart"></canvas>
-
-
                 <div class="bg-sky-500 p-3 m-3">
-
                 <h1 class="mb-4 text-white">Grouped by Category</h1>
-
                 <ul class="card p-3 bg-sky-500 text-white mt-4">
-                @if(isset($incomeByCategory))
+                @if(isset($incomeByCategory) && $incomeByCategory->isNotEmpty())
                     @foreach($incomeByCategory as $category => $amount)
                         <li>{{ $category }}: ${{ number_format($amount, 2) }}</li>
                     @endforeach
@@ -105,7 +99,7 @@
 
 
 
-<div class="col-span-2">
+<div class="sm:col-span-2">
         <div class="m-4">
     <h4 class="text-2xl">Recent Transactions</h4>
         <table class="border-collapse border border-gray-400 table w-full mt-4 bg-white-700 p-8 shadow-xl">
@@ -117,7 +111,7 @@
                 </tr>
             </thead>
             <tbody>
-            @if(isset($recentExpenses))
+            @if(isset($recentExpenses) && $recentExpenses->count() > 0)
                 @foreach($recentExpenses as $expense)
                     <tr class="table-row border odd:bg-white even:bg-gray-50 dark:odd:bg-sky-400">
                         <td class="p-1">{{ $expense->created_at->format('Y-m-d') }}</td>
@@ -148,7 +142,12 @@
 
     // Chart.js configuration
     const ctx = document.getElementById('spendingChart').getContext('2d');
-    new Chart(ctx, {
+
+    if (categories.length === 0 || amounts.length === 0) {
+        document.getElementById('spendingChart').parentElement.innerHTML = '<p class="text-center text-gray-500 h-24">No data available for spending by category. </br>Click to <a href="/expenses/create" class="text-sky-700 underline font-bold">Add Expense</a></p>';
+    }else {
+
+        new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: categories,
@@ -159,10 +158,17 @@
             }]
         }
     });
+        
+    }
+  
 
 
     const inc = document.getElementById('incomeChart').getContext('2d');
-    new Chart(inc, {
+
+    if (incomeCategories.length === 0 || incomeAmount.length === 0) {
+        document.getElementById('incomeChart').parentElement.innerHTML = '<p class="text-center text-gray-500 h-24">No data available for income by category.  <a href="/income/create" class="text-sky-700 underline font-bold">Click here to Add Income</a></p>';
+    }else {
+        new Chart(inc, {
         type: 'doughnut',
         data: {
             labels: incomeCategories,
@@ -173,6 +179,8 @@
             }]
         }
     });
+    }
+   
 </script>
 @endsection
 

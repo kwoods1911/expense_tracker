@@ -3,7 +3,15 @@
 @section('content')
 
 <div class="text-center">
-    <h2 class="m-8 mt-4 text-4xl">My Total Budget  $ {{ $totalBudget }}</h2>
+    <h2 class="m-8 mt-4 text-4xl font-bold">My Total Budget  
+
+    <br>
+    <span class="mt-4">
+    $ {{ $totalBudget }}
+    </span>
+    
+
+</h2>
 </div>
 
 
@@ -46,11 +54,11 @@
     
     @else
 
-    <div class="flex flex-col items-center justify-start mt-8">
+    <!-- <div class="flex flex-col items-center justify-start mt-8">
         <h1 class=" m-8 text-3xl">You have not set a budget yet.</h1>
         <p>Lets get started with that. Click the button below.</p>
         <a href="{{ route('budget.create') }}" class="mt-8 bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-700">Set Budget</a>
-    </div>
+    </div> -->
     @endif
 </div>
 

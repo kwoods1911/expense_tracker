@@ -36,7 +36,7 @@ class BudgetController extends Controller
                 'string',
                 function ($attribute, $value, $fail){
                     
-                    if(Budget::where('category', $value)->exists()){
+                    if(Budget::where('category', $value)->where('user_id',Auth::id())->exists()){
                      $fail('The ' . $attribute . ' already exist');   
                     }
                    

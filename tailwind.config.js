@@ -15,8 +15,12 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             screens: {
-                largeMobile: '425px', // Custom breakpoint for extra small screens
-                xsmallmobile: '320px', // Custom breakpoint for extra small screens
+                lgMobile: '424px', // Custom breakpoint for extra small screens
+                mdMobile: '370px',
+
+                smLaptopScreen: '639px', // Custom breakpoint for extra small screens
+                mdLaptopScreen: '1440px', // Custom breakpoint for extra small screens
+                xsmallmobile: '318px', // Custom breakpoint for extra small screens
             },
         },
     },
