@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="grid sm:grid-cols-1 smLaptopScreen:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="grid sm:grid-cols-1 smLaptopScreen:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 mdLaptopScreen:grid-cols-4 gap-8">
 
     <div class="sm:col-span-1 mdMobile:p-8 lgMobile:p-16 md:p-0">
         <h1 class="mb-4 text-5xl text-center md:text-left">Expenses</h1> 
