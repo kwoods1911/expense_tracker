@@ -26,6 +26,7 @@
         <p class="font-bold text-2xl">Key Features</p>
         
     <ul>
+        <li>Expense Notification - Users can set a threshold and receive a notification via email.</li>
         <li>Income & Budget Management – Users can input their income and set a budget to track their spending.</li>
         <li>Expense Tracking – Users can log expenses with details like category, amount, and date.</li>  
         <li>Receipt Uploads – Supports uploading, editing, and managing receipts in PDF or JPG format, stored securely in an <span class="font-bold">AWS S3 bucket.</span></li>
