@@ -111,7 +111,7 @@
                 </tr>
             </thead>
             <tbody>
-            @if(isset($recentExpenses))
+            @if(isset($recentExpenses) && $recentExpenses->count() > 0)
                 @foreach($recentExpenses as $expense)
                     <tr class="table-row border odd:bg-white even:bg-gray-50 dark:odd:bg-sky-400">
                         <td class="p-1">{{ $expense->created_at->format('Y-m-d') }}</td>
@@ -144,7 +144,7 @@
     const ctx = document.getElementById('spendingChart').getContext('2d');
 
     if (categories.length === 0 || amounts.length === 0) {
-        document.getElementById('spendingChart').parentElement.innerHTML = '<p class="text-center text-gray-500 h-24">No data available for spending by category.</p>';
+        document.getElementById('spendingChart').parentElement.innerHTML = '<p class="text-center text-gray-500 h-24">No data available for spending by category. </br>Click to <a href="/expenses/create" class="text-sky-700 underline font-bold">Add Expense</a></p>';
     }else {
 
         new Chart(ctx, {
@@ -166,7 +166,7 @@
     const inc = document.getElementById('incomeChart').getContext('2d');
 
     if (incomeCategories.length === 0 || incomeAmount.length === 0) {
-        document.getElementById('incomeChart').parentElement.innerHTML = '<p class="text-center text-gray-500 h-24">No data available for income by category.</p>';
+        document.getElementById('incomeChart').parentElement.innerHTML = '<p class="text-center text-gray-500 h-24">No data available for income by category.  <a href="/income/create" class="text-sky-700 underline font-bold">Click here to Add Income</a></p>';
     }else {
         new Chart(inc, {
         type: 'doughnut',
