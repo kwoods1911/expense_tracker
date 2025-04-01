@@ -9,15 +9,23 @@
     <span class="mt-4">
     $ {{ $totalBudget }}
     </span>
-    
-
+    <br>
 </h2>
+
+
 </div>
 
 
 <div class="text-center">
-    <a href="{{ route('budget.create')}}" class="mt-8 bg-sky-500 text-white font-bold py-4 px-4 rounded hover:bg-sky-700 shadow-xl">Create New Budget</a>
+    <a href="{{ route('budget.create')}}" class="mt-8 bg-sky-500 text-white font-bold py-3 px-3 rounded hover:bg-sky-700 shadow-xl">Create New Budget</a>
+    <br>
 </div>
+
+<div class="text-center">
+<span class="mt-6">Email Notifications will be once daily at 0:00 am edit setting here:<a href="/editsettings">User Settings</a></span>
+</div>
+
+
 
 <div class="hidden md:block items-center justify-center mt-8 mx-auto">
     @if (count($budget) !== 0)

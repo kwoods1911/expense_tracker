@@ -7,7 +7,9 @@
 
 <h1>Notification Settings</h1>
 
-<form action="">
+<form action="{{ route('update.setting', $user->id)}}" method="POST">
+    @csrf
+    @method('PUT')
     <label for="received_emails">Receive Emails ?</label>
     <input type="checkbox" name="received_emails" id="receiveEmails" value="yes">
     <br>
@@ -16,10 +18,9 @@
 <label for="notification_time">Set Time to receive Emails</label>
 <span>Notifcations are sent once daily</span>
 
-   <select name="notification_time" id="notification_time">
-    <option value="">00:00</option>
-    <option value=""></option>
-   </select>
+   <input type="time" name="notification_time" id="notification_time" value="">
+    <br>
+    <span>Note: You will receive notifications only if you have selected the option to receive emails.</span>
 
 
    <br>
@@ -38,8 +39,6 @@
         
         receivedEmailsCheckbox.addEventListener('change', function() {
             this.checked ? notificationTimeSelect.disabled = false : notificationTimeSelect.disabled = true;
-                // if checked set notification time to disabled
-             
         });
     });
 </script>

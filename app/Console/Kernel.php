@@ -14,13 +14,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
+
+      //If current user has budgets notification enabled
        $schedule->call(function(){
             \Log::info('Budget check started');
               $budgets = Budget::all();
               foreach($budgets as $budget) {
                 $budget->checkSpending();
               }        
-       })->hourly();
+       })->dailyAt('08:00'); // Adjust the time as needed
     }
 
     /**

@@ -33,12 +33,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/usersettings', [UserSettings::class, 'index'])->name('usersettings');
 
     Route::get('/editsettings', [UserSettings::class, 'edit'])->name('editsettings');
+
+    Route::put('/updatesettings/{userId}',[UserSettings::class, 'update'])->name('update.setting');
    
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::resource('expenses', ExpenseController::class)->except(['show'])->name('index', 'expenses.index');
-
-
     Route::get('/budget', [BudgetController::class, 'index'])->name('budget.index');
 
     Route::get('/budget/create', [BudgetController::class, 'create'])->name('budget.create');
