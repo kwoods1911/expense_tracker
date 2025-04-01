@@ -8,14 +8,14 @@
 <h1>User Settings</h1>
 <span>User name</span>
 <br>
-<span>notification time: 0:00 </span>
+<span>notification time:  {{$user->send_notification_time}}</span>
 <br>
 
-<span>Receive Notifications yes/No</span>
+<span>Receive Notifications: {{$user->receive_notifications}}</span>
 <br>
 
 
-<a href="/editsettings">Edit Settings</a>
+<a href="/editsettings/{{$user->id}}">Edit Settings</a>
 
 </div>
 

@@ -25,6 +25,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'total_spent',
         'notification_threshold',
         'notification_type',
+        'receive_notifications',
+        'send_notification_time',
     ];
 
     /**

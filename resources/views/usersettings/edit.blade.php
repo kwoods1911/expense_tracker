@@ -7,11 +7,11 @@
 
 <h1>Notification Settings</h1>
 
-<form action="{{ route('update.setting', $user->id)}}" method="POST">
+<form action="{{ route('update.setting', $user->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <label for="received_emails">Receive Emails ?</label>
-    <input type="checkbox" name="received_emails" id="receiveEmails" value="yes">
+    <label for="receive_notifications">Receive Emails ?</label>
+    <input type="checkbox" name="receive_notifications" id="receiveEmails" value="1">
     <br>
 
 

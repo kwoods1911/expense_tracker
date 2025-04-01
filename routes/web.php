@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/usersettings', [UserSettings::class, 'index'])->name('usersettings');
 
-    Route::get('/editsettings', [UserSettings::class, 'edit'])->name('editsettings');
+    Route::get('/editsettings/{id}', [UserSettings::class, 'edit'])->name('editsettings');
 
     Route::put('/updatesettings/{userId}',[UserSettings::class, 'update'])->name('update.setting');
    
