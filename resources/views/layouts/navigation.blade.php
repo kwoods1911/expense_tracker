@@ -52,6 +52,10 @@
                     </x-slot>
 
                     <x-slot name="content">
+
+                    <div>
+                        <a href="/usersettings"> Settings </a>
+                    </div>
                       
 
                         <!-- Authentication -->

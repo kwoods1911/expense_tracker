@@ -10,6 +10,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomeController;
 
+use App\Http\Controllers\UserSettings;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,11 @@ use App\Http\Controllers\IncomeController;
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
+
+    Route::get('/usersettings', [UserSettings::class, 'index'])->name('usersettings');
+
+    Route::get('/editsettings', [UserSettings::class, 'edit'])->name('editsettings');
    
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

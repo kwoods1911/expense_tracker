@@ -1,0 +1,47 @@
+@extends('layouts.app')
+
+@section('content')
+
+
+<div>
+
+<h1>Notification Settings</h1>
+
+<form action="">
+    <label for="received_emails">Receive Emails ?</label>
+    <input type="checkbox" name="received_emails" id="receiveEmails" value="yes">
+    <br>
+
+
+<label for="notification_time">Set Time to receive Emails</label>
+<span>Notifcations are sent once daily</span>
+
+   <select name="notification_time" id="notification_time">
+    <option value="">00:00</option>
+    <option value=""></option>
+   </select>
+
+
+   <br>
+    <input type="submit" value="Save Settings">
+</form>
+</div>
+
+
+<script>
+    //check is page is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        let receivedEmailsCheckbox = document.getElementById('receiveEmails');
+        let notificationTimeSelect = document.getElementById('notification_time');
+        
+        receivedEmailsCheckbox.checked = true;
+        
+        receivedEmailsCheckbox.addEventListener('change', function() {
+            this.checked ? notificationTimeSelect.disabled = false : notificationTimeSelect.disabled = true;
+                // if checked set notification time to disabled
+             
+        });
+    });
+</script>
+
+@endsection
