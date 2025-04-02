@@ -21,8 +21,10 @@
     <br>
 </div>
 
-<div class="text-center">
-<span class="mt-6">Email Notifications will be once daily at 0:00 am edit setting here:<a href="/editsettings">User Settings</a></span>
+<div class="text-center mt-6">
+<span class="mt-6">Email Notifications will be once daily at {{ $user->formatted_notification_time }} edit setting here:
+    <a href="/usersettings" class="rounded text-sm text-sky-500 underline font-bold p-1">User Settings</a>
+</span>
 </div>
 
 
