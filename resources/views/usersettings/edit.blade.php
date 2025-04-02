@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="flex flex-col items-center justify-start mt-8">
+<div class="flex flex-col items-center justify-start mt-8 mx-4">
 
 <h2 class="text-2xl">Notification Settings</h2>
 
