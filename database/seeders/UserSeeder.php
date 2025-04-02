@@ -23,9 +23,11 @@ class UserSeeder extends Seeder
             'total_spent' => 500,
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
+            'timezone' => 'America/Halifax',
             'created_at' => now(),
             'updated_at' => now()
-            ]
+            ],
+           
         ]);
     }
 }

@@ -10,6 +10,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IncomeController;
 
+use App\Http\Controllers\UserSettings;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,12 +28,17 @@ use App\Http\Controllers\IncomeController;
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
+
+    Route::get('/usersettings', [UserSettings::class, 'index'])->name('usersettings');
+
+    Route::get('/editsettings/{id}', [UserSettings::class, 'edit'])->name('editsettings');
+
+    Route::put('/updatesettings/{userId}',[UserSettings::class, 'update'])->name('update.setting');
    
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
     Route::resource('expenses', ExpenseController::class)->except(['show'])->name('index', 'expenses.index');
-
-
     Route::get('/budget', [BudgetController::class, 'index'])->name('budget.index');
 
     Route::get('/budget/create', [BudgetController::class, 'create'])->name('budget.create');

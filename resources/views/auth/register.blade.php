@@ -39,6 +39,8 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <input type="hidden" name="timezone" id="timezone" value="">
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
@@ -49,4 +51,20 @@
             </x-primary-button>
         </div>
     </form>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        console.log('loaded')
+        // Detect the user's timezone
+        const detectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        // Set the detected timezone in a hidden input field
+        const timezoneInput = document.getElementById('timezone');
+        if (timezoneInput) {
+            timezoneInput.value = detectedTimezone;
+        }
+    });
+</script>
 </x-guest-layout>

@@ -52,6 +52,14 @@
                     </x-slot>
 
                     <x-slot name="content">
+
+                    <div>
+                        
+
+                        <x-dropdown-link :href="route('usersettings')">
+                              Settings
+                            </x-dropdown-link>
+                    </div>
                       
 
                         <!-- Authentication -->
@@ -114,6 +122,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
+            <x-responsive-nav-link :href="route('usersettings')">
+                              Settings
+            </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

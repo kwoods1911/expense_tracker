@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Budget;
 use App\Models\Category;
+use App\Models\User;
 
 class BudgetController extends Controller
 {
@@ -14,10 +15,12 @@ class BudgetController extends Controller
     {
 
         $user_id = Auth::id();
+        $user = User::find($user_id);
         $budget = Budget::where('user_id', $user_id )->get();
 
+
         $totalBudget = number_format(Budget::where('user_id', $user_id)->sum('amount'),2);
-        return view('budget.index', compact('budget', 'totalBudget'));
+        return view('budget.index', compact('budget', 'totalBudget', 'user'));
     }
 
     public function create()

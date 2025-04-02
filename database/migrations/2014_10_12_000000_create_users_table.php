@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('timezone')->nullable();
+            $table->boolean('receive_notifications')->default(true);
+            $table->string('send_notification_time')->default('00:00')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
