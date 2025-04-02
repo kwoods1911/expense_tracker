@@ -24,12 +24,14 @@ class Kernel extends ConsoleKernel
             \Log::info('Budget check started');
             
             foreach($users as $user){
+
               $schedule->call(function () use ($user){
                 \Log::info("Budget check started for user ID: {$user->id}");
                 $budgets = Budget::where('user_id', $user->id)->get();
               foreach($budgets as $budget) {
                 $budget->checkSpending();
               }
+              
               })->dailyAt($user->send_notification_time);        
             }
               

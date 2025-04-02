@@ -40,9 +40,14 @@ class UserSettings extends Controller
         // check if the authenticated user is the same as the user being updated
         if (auth()->id() !== $user->id) return redirect()->back()->with('error', 'You are not authorized to update this users.');
 
+
+        
+
         $user->update([
             'receive_notifications' => $request->receive_notifications  ? true : false,
-            'send_notification_time' => $request->notification_time,
+            'send_notification_time' => \Carbon\Carbon::createFromFormat('H:i', $request->notification_time, 'America/Halifax')
+            ->setTimezone(config('app.timezone'))
+            ->format('H:i'),
         ]);
 
         return redirect()->route('usersettings')->with('success', 'Settings updated successfully!');
