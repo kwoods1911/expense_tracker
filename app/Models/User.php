@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Carbon\Carbon;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -25,6 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'total_spent',
         'notification_threshold',
         'notification_type',
+        'timezone',
         'receive_notifications',
         'send_notification_time',
     ];
@@ -57,6 +59,18 @@ class User extends Authenticatable implements MustVerifyEmail
     public function expenses()
     {
     return $this->hasMany(Expense::class);
+    }
+
+    public function getFormattedNotificationTimeAttribute()
+    {
+        
+        return Carbon::parse($this->send_notification_time)
+        ->setTimezone($this->timezone ?? config('app.timezone'))
+        ->format('H:i');
+    }
+
+    public function getFormattedNotificationSelectionAttribute(){
+        return ($this->receive_notifications) ? 'Yes' : 'No';
     }
 
 }

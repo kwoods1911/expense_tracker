@@ -22,6 +22,8 @@
     <br>
     <span>Note: You will receive notifications only if you have selected the option to receive emails.</span>
 
+    
+
 
    <br>
     <input type="submit" value="Save Settings">

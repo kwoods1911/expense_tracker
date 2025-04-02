@@ -18,14 +18,16 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
             'name'=> 'Test User',
-            'email' => 'test@elcheapo.com',
+            'email' => 'khariwoods3@gmail.com',
             'monthly_budget' => 1000,
             'total_spent' => 500,
             'email_verified_at' => now(),
             'password' => bcrypt('password'),
+            'timezone' => 'America/Halifax',
             'created_at' => now(),
             'updated_at' => now()
-            ]
+            ],
+           
         ]);
     }
 }
