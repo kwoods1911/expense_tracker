@@ -73,4 +73,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return ($this->receive_notifications) ? 'Yes' : 'No';
     }
 
+    public function getFormattedUserTimezoneAttribute(){
+        return ($this->timezone) ? $this->timezone : 'N/A';
+    }
+
 }

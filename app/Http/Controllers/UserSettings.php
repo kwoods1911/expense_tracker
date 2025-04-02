@@ -32,6 +32,7 @@ class UserSettings extends Controller
         if($request->receive_notifications){
             $request->validate([
                 'notification_time' => 'required',
+                'timezone' => 'required|timezone'
             ]);
 
         }
@@ -45,6 +46,7 @@ class UserSettings extends Controller
             'send_notification_time' => \Carbon\Carbon::createFromFormat('H:i', $request->notification_time, 'America/Halifax')
             ->setTimezone(config('app.timezone'))
             ->format('H:i'),
+            'timezone' => $request->timezone
         ]);
 
         return redirect()->route('usersettings')->with('success', 'Settings updated successfully!');

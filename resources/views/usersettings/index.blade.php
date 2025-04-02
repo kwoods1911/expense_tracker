@@ -12,9 +12,12 @@
 <br>
 
 <span>Receive Notifications: {{ $user->formatted_notification_selection }}</span>
+
+
 <br>
 
-
+<span>User Timezone: {{$user->formatted_user_timezone}}</span>
+<br>
 <a href="/editsettings/{{$user->id}}">Edit Settings</a>
 
 </div>
