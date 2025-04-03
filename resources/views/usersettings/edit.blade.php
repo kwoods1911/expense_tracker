@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="flex flex-col items-center justify-start mt-8 mx-4">
+<div class="flex flex-col items-left justify-start mt-8 mx-auto block md:w-1/2 lg:w-1/3 mt-8">
 
 <h2 class="text-2xl">Notification Settings</h2>
 
@@ -44,16 +44,6 @@
 <script>
     //check is page is loaded
     document.addEventListener('DOMContentLoaded', function() {
-        let receivedEmailsCheckbox = document.getElementById('receiveEmails');
-        let notificationTimeSelect = document.getElementById('notification_time');
-        
-        receivedEmailsCheckbox.checked = true;
-        
-        receivedEmailsCheckbox.addEventListener('change', function() {
-            this.checked ? notificationTimeSelect.disabled = false : notificationTimeSelect.disabled = true;
-        });
-
-
         // refactor later into own script file
         const timezoneSelect = document.getElementById('timezone');
         const detectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -67,6 +57,20 @@
                 optionToSelect.selected = true;
             }
         }
+        
+        
+        let receivedEmailsCheckbox = document.getElementById('receiveEmails');
+        let notificationTimeSelect = document.getElementById('notification_time');
+        
+        receivedEmailsCheckbox.checked = true;
+        
+        receivedEmailsCheckbox.addEventListener('change', function() {
+            this.checked ? notificationTimeSelect.disabled = false : notificationTimeSelect.disabled = true;
+            this.checked ? timezoneSelect.disabled = false : timezoneSelect.disabled = true;
+        });
+
+
+        
     });
 
 
