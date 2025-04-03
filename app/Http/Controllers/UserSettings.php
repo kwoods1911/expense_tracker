@@ -43,9 +43,9 @@ class UserSettings extends Controller
 
         $user->update([
             'receive_notifications' => $request->receive_notifications  ? true : false,
-            'send_notification_time' => \Carbon\Carbon::createFromFormat('H:i', $request->notification_time, 'America/Halifax')
+            'send_notification_time' => $request->receive_notifications ? \Carbon\Carbon::createFromFormat('H:i', $request->notification_time, $request->timezone)
             ->setTimezone(config('app.timezone'))
-            ->format('H:i'),
+            ->format('H:i') : '00:00',
             'timezone' => $request->timezone
         ]);
 

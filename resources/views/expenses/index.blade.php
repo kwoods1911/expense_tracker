@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-[rgb(241, 241, 241)] min-h-screen">
 @if(session('success'))
-        <div class="bg-green-500 text-white w-1/4 mx-auto mt-4 p-4 rounded shadow-lg">{{ session('success') }}</div>
+        <div class="bg-green-500 text-white mx-auto mt-4 p-2 rounded shadow-lg">{{ session('success') }}</div>
     @endif
 <div>
     <div class="mt-8 text-center">
@@ -107,14 +107,14 @@
                    <td class="py-2 px-2 font-bold">Modify/Delete</td>
                    <td class="px-2 py-2 w-1/2">
                        <span>
-                           <a href="{{ route('expenses.edit', $expense->id) }}" class="rounded text-sm text-white bg-green-500 font-bold p-1">Edit</a>
+                           <a href="{{ route('expenses.edit', $expense->id) }}" class="rounded text-sm text-white bg-green-500 font-bold px-4 py-2">Edit</a>
                        </span>
 
                        
                        <form action="{{ route('expenses.destroy', $expense->id) }}" method="POST">
                                @csrf
                                @method('DELETE')
-                               <button type="submit" onclick="return confirm('Are you sure? Doing this will also delete any receipts that you have.')" class="rounded text-sm text-white bg-red-500 font-bold p-1 my-1">Delete</button>
+                               <button type="submit" onclick="return confirm('Are you sure? Doing this will also delete any receipts that you have.')" class="rounded text-sm text-white bg-red-500 font-bold px-4 py-2 mt-4">Delete</button>
                         </form>
                      
                     

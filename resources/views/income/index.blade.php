@@ -4,7 +4,7 @@
 
 <div class="bg-[rgb(241, 241, 241)] min-h-screen">
 @if(session('success'))
-        <div class="bg-green-500 text-white w-1/4 mx-auto mt-4 p-4 rounded shadow-lg">{{ session('success') }}</div>
+        <div class="bg-green-500 text-white w-1/4 mx-auto mt-4 p-2 rounded shadow-lg">{{ session('success') }}</div>
     @endif
 <div>
     <div class="mt-8 flex justify-center">
@@ -97,12 +97,12 @@
                 <td>
                     
                 <span>
-                <a href="{{ route('income.edit', $income->id) }}" class="rounded text-sm text-white bg-green-500 font-bold p-1">Edit</a>
+                <a href="{{ route('income.edit', $income->id) }}" class="rounded text-sm text-white bg-green-500 font-bold py-2 px-4">Edit</a>
                 </span> 
                 <form action="{{ route('income.destroy', $income->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="rounded text-sm text-white bg-red-500 font-bold p-1 my-1" onclick="return confirm('Are you sure?')">Delete</button>
+                    <button type="submit" class="rounded text-sm text-white bg-red-500 font-bold py-2 px-4 my-4" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
                 </td>
             </tr>

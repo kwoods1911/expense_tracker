@@ -3,6 +3,17 @@
 @section('content')
 <div class="flex flex-col items-center justify-start mt-8">
     <h2 class="text-2xl">Edit Your Budget</h2>
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="bg-red-500 text-white w-full mx-auto mt-4 p-4 rounded shadow-lg">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <form action="{{ route('budget.update', $budget->id) }}" method="POST">
         @csrf
         @method('PUT')

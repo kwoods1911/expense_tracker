@@ -57,7 +57,7 @@ class ExpenseController extends Controller
             'receipt_path' => $receiptPath
         ]);
 
-        return redirect()->route('expenses.index')->with('success', 'Expense added successfully.');
+        return redirect()->route('expenses.index')->with('success', 'Expense added successfully !');
     }
 
     public function edit(Expense $expense)
@@ -99,7 +99,7 @@ class ExpenseController extends Controller
             'receipt_path' => $receiptPath
         ]);
 
-        return redirect()->route('expenses.index')->with('success', 'Expense updated successfully.');
+        return redirect()->route('expenses.index')->with('success', 'Expense updated successfully !');
     }
 
     public function destroy(Expense $expense)
@@ -107,6 +107,6 @@ class ExpenseController extends Controller
         $this->authorize('delete', $expense);
         if ($expense->receipt_path) Storage::disk('s3')->delete($expense->receipt_path);
         $expense->delete();
-        return redirect()->route('expenses.index')->with('success', 'Expense deleted successfully.');
+        return redirect()->route('expenses.index')->with('success', 'Expense deleted successfully !');
     }
 }

@@ -20,7 +20,7 @@
 
     <div class="mb-3">
     <label for="category" class="block text-gray-700 font-bold mb-2">Category</label>
-    <select name="category" for="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" required>
+    <select name="category" for="category" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full">
         <option value="">Select a category</option>
         @foreach($categories as $category)
             <option value="{{ $category->name }}" {{ $expense->category_id == $category->id ? 'selected' : '' }} >
@@ -32,12 +32,12 @@
 
         <div class="mb-3">
             <label class="form-label">Amount</label>
-            <input type="number" step="0.01" name="amount" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" value="{{ $expense->amount }}" required>
+            <input type="number" step="0.01" name="amount" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" value="{{ $expense->amount }}">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Date</label>
-            <input type="date" name="date" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" value="{{ $expense->date }}" required>
+            <input type="date" name="date" class="ml-8 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-sky-500 mb-4 w-full" value="{{ $expense->date }}">
         </div>
 
         <div class="mb-3">
