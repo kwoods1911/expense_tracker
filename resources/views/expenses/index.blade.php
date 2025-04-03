@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-[rgb(241, 241, 241)] min-h-screen">
 @if(session('success'))
-        <div class="bg-green-500 text-white mx-auto mt-4 p-2 rounded shadow-lg">{{ session('success') }}</div>
+        <div class="bg-green-500 text-white md:w-1/5 mx-auto mt-4 p-2 rounded shadow-lg">{{ session('success') }}</div>
     @endif
 <div>
     <div class="mt-8 text-center">

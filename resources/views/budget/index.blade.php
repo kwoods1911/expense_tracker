@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="bg-[rgb(241, 241, 241)] min-h-screen">
+@if(session('success'))
+        <div class="bg-green-500 text-white md:w-1/5 mx-auto mt-4 p-2 rounded shadow-lg">{{ session('success') }}</div>
+    @endif
+<div>
 <div class="text-center">
     <h2 class="m-8 mt-4 text-4xl font-bold">My Total Budget  
 
